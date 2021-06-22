@@ -37,30 +37,30 @@ Jugadores de PokemonGO y personas que quieren iniciarse en el juego.
 
  _“Yo como jugador de PokemonGO quiero ver todas las caracteristicas de cada pokemon”_
 * Criterios de aceptación: </br>
-- Ingresar a la pagina Pokedex </br>
-- Buscar el pokemon </br>
-- Seleccionarlo para ver sus características. </br>
+1. Ingresar a la pagina Pokedex </br>
+2. Buscar el pokemon </br>
+3. Seleccionarlo para ver sus características. </br>
 -Terminado- </br>
 
 _“Yo usuario de PokemonGO quiero saber el top 10 de la aparición de los pokemon”_
 * Criterios de aceptación: </br>
-- Ubicarse en la pagina de Inicio </br>
-- Presionar y ver en la parte inferior el Top 10. </br>
+1. Ubicarse en la pagina de Inicio </br>
+2. Presionar y ver en la parte inferior el Top 10. </br>
 -Terminado- </br>
 
 _“Yo como jugador de PokemonGO quiero filtrar por tipo y debilidades para saber con que pokemon debo luchar en las batallas ”_
 * Criterios de aceptación: </br>
-- Ingresar a la pagina Pokedex </br>
-- Filtrar por Tipo </br>
-- Filtrar por debilidad </br>
-- En la pantalla se mostrará los Pokemon con los tipos de filtros seleccionados. </br>
+1. Ingresar a la pagina Pokedex </br>
+2. Filtrar por Tipo </br>
+3. Filtrar por debilidad </br>
+4. En la pantalla se mostrará los Pokemon con los tipos de filtros seleccionados. </br>
 -Terminado- </br>
 
 _“Yo como jugador de PokemonGO quiero conocer las evoluciones de un pokemon y la cantidad de caramelos que se necesita para las evoluciones”_
 * Criterios de aceptación: </br>
-- Ingresar a la pagina Pokedex </br>
-- Buscar el pokemon </br>
-- Seleccionarlo para sus evoluciones y la cantidad de caramelos que se necesita para las evoluciones. </br>
+1. Ingresar a la pagina Pokedex </br>
+2. Buscar el pokemon </br>
+3. Seleccionarlo para sus evoluciones y la cantidad de caramelos que se necesita para las evoluciones. </br>
 -Terminado- 
  
  
