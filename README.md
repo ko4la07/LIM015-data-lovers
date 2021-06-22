@@ -37,30 +37,30 @@ Jugadores de PokemonGO y personas que quieren iniciarse en el juego.
 
  _“Yo como jugador de PokemonGO quiero ver todas las caracteristicas de cada pokemon”_
 * Criterios de aceptación: </br>
-Ingresar a la pagina Pokedex </br>
-buscar el pokemon </br>
-seleccionarlo para ver sus características. </br>
+- Ingresar a la pagina Pokedex </br>
+- Buscar el pokemon </br>
+- Seleccionarlo para ver sus características. </br>
 -Terminado- </br>
 
 _“Yo usuario de PokemonGO quiero saber el top 10 de la aparición de los pokemon”_
 * Criterios de aceptación: </br>
-Ubicarse en la pagina de Inicio </br>
-Presionar y ver en la parte inferior el Top 10. </br>
+- Ubicarse en la pagina de Inicio </br>
+- Presionar y ver en la parte inferior el Top 10. </br>
 -Terminado- </br>
 
 _“Yo como jugador de PokemonGO quiero filtrar por tipo y debilidades para saber con que pokemon debo luchar en las batallas ”_
 * Criterios de aceptación: </br>
-Ingresar a la pagina Pokedex </br>
-Filtrar por Tipo </br>
-Filtrar por debilidad </br>
-En la pantalla se mostrará los Pokemon con los tipos de filtros seleccionados. </br>
+- Ingresar a la pagina Pokedex </br>
+- Filtrar por Tipo </br>
+- Filtrar por debilidad </br>
+- En la pantalla se mostrará los Pokemon con los tipos de filtros seleccionados. </br>
 -Terminado- </br>
 
 _“Yo como jugador de PokemonGO quiero conocer las evoluciones de un pokemon y la cantidad de caramelos que se necesita para las evoluciones”_
 * Criterios de aceptación: </br>
-Ingresar a la pagina Pokedex </br>
-buscar el pokemon </br>
-seleccionarlo para sus evoluciones y la cantidad de caramelos que se necesita para las evoluciones. </br>
+- Ingresar a la pagina Pokedex </br>
+- Buscar el pokemon </br>
+- Seleccionarlo para sus evoluciones y la cantidad de caramelos que se necesita para las evoluciones. </br>
 -Terminado- 
  
  
@@ -86,9 +86,9 @@ Trabajamos el prototipo de alta fidelidad con la herramienta Figma.
 
 ### Desktop
 
-![Prototipo Figma Desktop Iteración 1](https://github.com/ko4la07/LIM015-data-lovers/blob/main/src/assets/img/PrototipoAltaMobile_1.png)
+![Prototipo Figma Desktop Iteración 1](https://github.com/ko4la07/LIM015-data-lovers/blob/main/src/assets/img/Iteracion_1.png)
 
-![Prototipo Figma Desktop Iteración 2](https://github.com/ko4la07/LIM015-data-lovers/blob/main/src/assets/img/PrototipoAltaMobile_2.png)
+![Prototipo Figma Desktop Iteración 2](https://github.com/ko4la07/LIM015-data-lovers/blob/main/src/assets/img/Iteracion_2.png)
 
 ![Prototipo Figma Desktop Final](https://github.com/ko4la07/LIM015-data-lovers/blob/main/src/assets/img/PrototipoAltaDesktop.png)
 
