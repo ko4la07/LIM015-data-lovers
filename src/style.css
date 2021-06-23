@@ -42,7 +42,7 @@ header {
 }
 
 .right_panel {
-    background: linear-gradient(#9ED0E5, #0A3977) ;
+    background: #9ED0E5 ;
     width: 40%;
     height: 100%;
     position: absolute;
