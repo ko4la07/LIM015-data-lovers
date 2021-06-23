@@ -5,25 +5,38 @@
     <title>PokéGO Friend</title>
     <link type="img/png" rel="icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <!-- <div id="root"></div> -->
+
+<!-- Header -->
     <header>
-      <img src="assets/img/logo pokemon.png" alt="logo">
-        <nav>
-          <ul>
-            <li>Inicio</li>
-            <li>Pokédex</li>
-            <li>Guía de juego/li>
-          </ul>
-        </nav>
+      <img src="assets/img/logo pokemon.png" alt="logo" width="160" height="80">
     </header>
+
+<!-- Barra lateral -->
+
+    <input type="checkbox" class="checkbox" id="check">
+    <label for="check" class="menu">|||</label>
+    <div class="right_panel">
+      <ul>
+        <a> <li>Inicio</li> </a>
+        <a> <li>Pokédex</li> </a>
+        <a> <li>Guía de juego</li> </a>
+      </ul>
+    </div>
+    
+
 <!-- Interfaz 1 -->
     <main>
-      <section>
-        <img src="assets/img/ImgPokemonGO.jpeg" alt="PokemonGo">
-        <img src="assets/img/PokemonGO.gif" alt="PokemonGOGif">
-        <button>Jugar</button>
+      <br>
+        <!-- <img src="assets/img/ImgPokemonGO.jpeg" alt="PokemonGo"> -->
+        <!-- <img src="assets/img/PokemonGO.gif" alt="PokemonGOGif"> </br> -->
+        <div id="pokemon_gif">
+          <button>Jugar</button>
+        </div>
+        
       </section>
       <section>
         <h1>Conoce el</h1>
@@ -34,7 +47,60 @@
         <img src="" alt="pokemon1">
       </section>
     </main>
-    
+<!-- Interfaz 2 -->
+    <main>
+      <h1>Pokedéx <span id="pokebola"></span></h1>
+      <div id="dropdown_debility">
+        <button class="dropbtn">Debilidad</button>
+        <div class="dropdown_content">
+          <a>Mayor debilidad</a>
+          <a>Menor debilidad</a>
+        </div>
+        </div>
+        <div id="dropdown_attack">
+          <button class="dropbtn">Ataque</button>
+        <div class="dropdown_content">
+          <a>Mayor ataque</a>
+          <a>menor Ataque</a>
+        </div>
+        </div>
+        <div id="dropdown_defense">
+          <button class="dropbtn">Defensa</button>
+        <div class="dropdown_content">
+          <a>Mayor defensa</a>
+          <a>Menor defensa</a>
+        </div>
+        </div>
+        <div id="dropdown_more">
+          <button class="dropbtn">Más</button>
+        <div class="dropdown_content">
+          <a>Mayor huida</a>
+          <!-- <a>Menor huida</a> -->
+          <a>Mayor resistencia</a>
+          <!-- <a>Menor resistencia</a> -->
+          <a>Mayor poder</a>
+          <!-- <a>Menor poder</a> -->
+          <a>Mayor vida</a>
+          <!-- <a>Menor poder</a> -->
+        </div>
+        </div>
+        <p>Los pokemon aquí</p>
+    </main>
+<!-- Interfaz 3 -->
+      <section>
+      <a>Sobre mí</a>
+      <a>Características</a>
+      <a>Ataques</a>
+      <div>
+      <span> <b>Generacion</b> </span> <br>
+      <span> <b>Altura</b> </span> <br>
+      <span> <b>Peso</b> </span> <br>
+      <span> <b>Rareza</b> </span> <br>
+      <span> <b>Tipo</b> </span> <br>
+      </div>
+      </section>
+      
+
     <script src="main.js" type="module"></script>
   </body>
 </html>
