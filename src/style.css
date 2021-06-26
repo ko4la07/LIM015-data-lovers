@@ -1,7 +1,8 @@
 * { 
-    margin:0; 
-    padding:0; 
-    box-sizing:border-box; }
+    margin:0px; 
+    padding:0px; 
+    box-sizing:border-box; 
+}
 
 header {
     background-color: #0A3977;
@@ -11,15 +12,25 @@ header {
 
 }
 
-#pokemon_gif {
-    background-image: url('assets/img/PokemonGO.gif');
+/* -------------Gif------------ */
+
+.box_pokemonGO {
+    display: flex;
+    height: 100%;
     width: 100%;
+    justify-content: space-around;
+}
+
+
+.box_pokemonGO div{
+    background-image: url('assets/img/PokemonGO.gif');
     height: 400px;
+    width: 800px;
     background-size: cover;
     background-position: center;
 }
 
-/* -----------Barra Lateral --------- */
+/* --------------Sidebar First version------------ */
 
 .menu {
     width: 2.2rem;
@@ -28,39 +39,57 @@ header {
     border-radius: 0.5rem;
     position: absolute;
     top: 6%;
-    right: 0%;
+    left: 0%;
     font-size: 2rem;
     color: white;
     text-align: center;
-    transition: right 0.7s;
+    transition: left 0.7s;
 
 }
 
 .checkbox:checked ~ .menu {
-    right: 40%;
+    left: 40%;
     border-radius: 0.5rem;
 }
 
-.right_panel {
+.left_panel {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     background: #9ED0E5 ;
-    width: 40%;
-    height: 100%;
+    width: 40%; 
+    height: auto;
     position: absolute;
     top: 0;
-    right: -40%;
+    left: -40%; 
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: right 0.4s;
+    transition: left 0.4s;
+    z-index: 2;
+    list-style: none;
 }
 
-.checkbox:checked ~ .right_panel{
-    right: 0;
+.checkbox:checked ~ .left_panel{
+    left: 0;
 }
 
 .checkbox {
     display: none;
 }
+
+.left_panel li {
+    margin: 5px;
+    padding: 5px;
+    font-size: 15px;
+    color: white;
+}
+
+#logo_sidebar {
+    width: 75px;
+    height: 38px;
+}
+
 
 /* ---------Dropdown--------- */
 
@@ -71,6 +100,7 @@ header {
     font-size: 16px;
     border: none;
     border-radius: 15px;
+    z-index: 1;
   }
 
 /* -------------------- */
@@ -134,3 +164,22 @@ header {
 #dropdown_defense:hover .dropbtn {background-color: #08224E;}
 
 #dropdown_more:hover .dropbtn {background-color: #08224E;}
+
+
+/* ------------------Types pokemon--------------- */
+
+#pokemon {
+  display: flex;
+  flex-wrap:wrap;
+  /* border: 1px solid blue; */
+  justify-content: space-around;
+}
+
+#pokemon div{
+  /* display: inline-block; */
+  padding: 20px;
+  width: 250px;
+  height: 230px;
+  margin-top:50px;
+  border: 1px solid red;
+}

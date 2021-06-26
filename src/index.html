@@ -12,29 +12,47 @@
 
 <!-- Header -->
     <header>
-      <img src="assets/img/logo pokemon.png" alt="logo" width="160" height="80">
+      <img src="assets/img/logo.png" alt="logo" width="160" height="80">
     </header>
 
-<!-- Barra lateral -->
+<!-- Sidebar first version -->
 
-    <input type="checkbox" class="checkbox" id="check">
-    <label for="check" class="menu">|||</label>
-    <div class="right_panel">
-      <ul>
-        <a id="home"> Home </a> <br>
-        <a id="pokedex"> Pokédex </a> <br>
-        <a id="guide"> Game guide </a>
-      </ul>
+<input type="checkbox" class="checkbox" id="check">
+<label for="check" class="menu">&equiv;</label>
+<div class="left_panel" >
+    <li>
+      <img src="assets/img/logo.png" alt="Logo Pokemon" class="logo" id="logo_sidebar">
+    </li>
+    <li id="home"> Home </li> 
+    <li id="pokedex"> Pokédex </li> 
+    <div>
+    <li id="type_normal">Normal</li>
+    <li id="type_fighting">Fighting</li>
+    <li id="type_flying">Flying</li>
+    <li id="type_poison">Poison</li>
+    <li id="type_ground">Ground</li>
+    <li id="type_rock">Rock</li>
+    <li id="type_bug">Bug</li>
+    <li id="type_ghost">Ghost</li>
+    <li id="type_steel">Steel</li>
+    <li id="type_fire">Fire</li>
+    <li id="type_water">Water</li>
+    <li id="type_grass">Grass</li>
+    <li id="type_electric">Electric</li>
+    <li id="type_psychic">Psychic</li>
+    <li id="type_ice">Ice</li>
+    <li id="type_dragon">Dragon</li>
+    <li id="type_fairy">Fairy</li>
+    <li id="type_dark">Dark</li>
     </div>
-    
+    <li id="guide"> Guide </li>
+</div>
 
 <!-- Interfaz 1 -->
     <main id="interface_home" style="display: block;"> 
-      <br>
-        <!-- <img src="assets/img/ImgPokemonGO.jpeg" alt="PokemonGo"> -->
-        <!-- <img src="assets/img/PokemonGO.gif" alt="PokemonGOGif"> </br> -->
-        <div id="pokemon_gif">
-          <button>Play</button>
+        <div class="box_pokemonGO">
+          <div class="pokemonGO_gif">
+        </div>
         </div>
         
       </section>
@@ -84,7 +102,8 @@
           <!-- <a>Menor poder</a> -->
         </div>
         </div> 
-        <br> <a id="pokemon">Pokémon here</a>
+         <div id="pokemon">Pokémon here</div>
+         <div id="pokemon_type" style="display: none;"></div>
     </main>
 <!-- Interfaz 3 -->
       <section id="pokemon_information_bar">

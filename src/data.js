@@ -1,38 +1,12 @@
 // estas funciones son de ejemplo
 
-// import data from "./data/pokemon/pokemon";
+
+
 
 // export const example = () => {
 //   return 'example';
 // };
 
-// export const anotherExample = () => {
-//   return 'OMG';
-// };
-
-
-
-
-export const topTen = (data) => {
-  let arrayEmpty= [];
-    for (let i = 0; i < data.pokemon.length; i++) {
-      let topTenPokemon= data.pokemon[i]["spawn-chance"];
-      let stringToNumber= parseInt(topTenPokemon);
-  // let arrayOfNumbers= Array.from(stringToNumber);
-      arrayEmpty.push(stringToNumber);
-      arrayEmpty.sort(function(a,b){return b-a});
-      // arrayEmpty.slice(0,9);
-  // console.log(arrayVacio);
-      
-      // console.log(typeof(arrayEmpty));
-    }
-    let newArray= arrayEmpty.slice(0,10);
-    console.log(newArray);
-}
-  
-  
- 
- 
   
 //   let html="";
 //   data.map(x => {
@@ -58,3 +32,42 @@ export const topTen = (data) => {
   //   html += "<hr/>"
   // })
   // document.getElementById("resultado").innerHTML= html;
+
+
+//--------Mostrar pokemon -------
+
+export const allPokemon = (data) => {
+    let imagenPokemon=""; 
+    for (let i = 0; i < 251; i++) {
+        imagenPokemon += "<div><span id='pokemon_"+data.pokemon[i].num+"'>" + data.pokemon[i].name +"</span>"
+        imagenPokemon += "<img width='120' height='120' src='" + data.pokemon[i].img + "'></img></div>";
+    }
+    return imagenPokemon;
+};
+//-------Filtrar por tipo ----------
+
+export const filterType = (data,type) => {
+    let imagenPokemon=""; 
+    for (let i = 0; i < 251; i++) {
+        if(data.pokemon[i].type == type || data.pokemon[i].type[0] == type || data.pokemon[i].type[1] == type){
+            imagenPokemon += "<span id='pokemon_"+data.pokemon[i].num+"'>" + data.pokemon[i].name +"</span>"
+            imagenPokemon += "<img src='" + data.pokemon[i].img + "'></img>";
+        }
+    }
+    return imagenPokemon;
+};
+ 
+//----------------
+export const displayType= (data, id, type) => {
+    if (id =='pokemon') {
+        document.getElementById('pokemon').style.display='flex';
+        document.getElementById('pokemon_type').style.display='none';
+    } else if (id =='pokemon_type') {
+        let filter= filterType(data,type);
+        document.getElementById('pokemon_type').innerHTML=filter;
+        document.getElementById('pokemon').style.display='none';
+        document.getElementById('pokemon_type').style.display='flex';
+    }
+}
+
+
