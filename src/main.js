@@ -3,7 +3,39 @@
 /* import data from './data/pokemon/pokemon.js'; */
 // import data from './data/rickandmorty/rickandmorty.js';
 
-/* -------- Display ---------- */
+import data from './data/pokemon/pokemon.js';
+import {allPokemon, filterType} from './data.js'
+
+const pokemonData=JSON.parse(JSON.stringify(data));
+// console.log(pokemonData);
+
+let imagesPokemon=allPokemon(pokemonData)
+document.getElementById('pokemon').innerHTML=imagesPokemon;
+// console.log(imagesPokemon);
+
+let filtergrass= filterType(pokemonData,'fire');
+document.getElementById('pokemon_type').innerHTML=filtergrass;
+//console.log(filtergrass);
+
+document.getElementById('type_fire').addEventListener('click', function() { 
+    displayType('pokemon_type');
+});
+document.getElementById('pokedex').addEventListener('click', function() { 
+    displayType('pokemon');
+});
+
+const displayType= (id) => {
+    if (id =='pokemon') {
+        document.getElementById('pokemon').style.display='block';
+        document.getElementById('pokemon_type').style.display='none';
+    } else if (id =='pokemon_type') {
+        document.getElementById('pokemon').style.display='none';
+        document.getElementById('pokemon_type').style.display='block';
+    }
+}
+
+
+
 document.getElementById('home').addEventListener('click', function() { 
     displayMain('home');
 });
@@ -42,7 +74,6 @@ const displayMain = (id) => {
     }
 }
 
-/* ----------- Information display ------------- */
 document.getElementById('pokemon').addEventListener('click', function() { 
     pokemonInformationDisplay('pokemon');
 });
@@ -92,3 +123,4 @@ const pokemonInformationDisplay = (id) => {
         document.getElementById('interface_guide').style.display= 'none';
     } 
 }
+
