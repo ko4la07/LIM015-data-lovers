@@ -30,7 +30,17 @@ export const filterType = (data,type) => {
 };
  
 //----------------
-
+export const displayType= (data, id, type) => {
+    if (id =='pokemon') {
+        document.getElementById('pokemon').style.display='flex';
+        document.getElementById('pokemon_type').style.display='none';
+    } else if (id =='pokemon_type') {
+        let filter= filterType(data,type);
+        document.getElementById('pokemon_type').innerHTML=filter;
+        document.getElementById('pokemon').style.display='none';
+        document.getElementById('pokemon_type').style.display='flex';
+    }
+}
 
 
 

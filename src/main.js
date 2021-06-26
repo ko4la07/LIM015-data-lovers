@@ -4,7 +4,7 @@
 // import data from './data/rickandmorty/rickandmorty.js';
 
 import data from './data/pokemon/pokemon.js';
-import {allPokemon, filterType} from './data.js'
+import {allPokemon, displayType} from './data.js'
 
 const pokemonData=JSON.parse(JSON.stringify(data));
 // console.log(pokemonData);
@@ -13,28 +13,92 @@ let imagesPokemon=allPokemon(pokemonData)
 document.getElementById('pokemon').innerHTML=imagesPokemon;
 // console.log(imagesPokemon);
 
-let filtergrass= filterType(pokemonData,'fire');
-document.getElementById('pokemon_type').innerHTML=filtergrass;
+// ------------
+
+// let filtergrass= filterType(pokemonData,'fire');
+// document.getElementById('pokemon_type').innerHTML=filtergrass;
 //console.log(filtergrass);
 
-document.getElementById('type_fire').addEventListener('click', function() { 
-    displayType('pokemon_type');
-});
+
 document.getElementById('pokedex').addEventListener('click', function() { 
-    displayType('pokemon');
+    displayType(pokemonData,'pokemon','pokedex');
 });
 
-const displayType= (id) => {
-    if (id =='pokemon') {
-        document.getElementById('pokemon').style.display='block';
-        document.getElementById('pokemon_type').style.display='none';
-    } else if (id =='pokemon_type') {
-        document.getElementById('pokemon').style.display='none';
-        document.getElementById('pokemon_type').style.display='block';
-    }
-}
+document.getElementById('type_normal').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'normal');
+});
+
+document.getElementById('type_fighting').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'fighting');
+});
+
+document.getElementById('type_flying').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'flying');
+});
+
+document.getElementById('type_poison').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'poison');
+});
+
+document.getElementById('type_ground').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'ground');
+});
+
+document.getElementById('type_rock').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'rock');
+});
+
+document.getElementById('type_bug').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'bug');
+});
+
+document.getElementById('type_ghost').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'ghost');
+});
+
+document.getElementById('type_steel').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'steel');
+});
+
+document.getElementById('type_fire').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'fire');
+});
+
+document.getElementById('type_water').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'water');
+});
+
+document.getElementById('type_grass').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'grass');
+});
+
+document.getElementById('type_electric').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'electric');
+});
+
+document.getElementById('type_psychic').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'psychic');
+});
+
+document.getElementById('type_ice').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'ice');
+});
+
+document.getElementById('type_dragon').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'dragon');
+});
+
+document.getElementById('type_fairy').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'fairy');
+});
+
+document.getElementById('type_dark').addEventListener('click', function() { 
+    displayType(pokemonData,'pokemon_type', 'dark');
+});
 
 
+
+// --------------------------
 
 document.getElementById('home').addEventListener('click', function() { 
     displayMain('home');

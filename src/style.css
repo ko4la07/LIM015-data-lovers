@@ -170,17 +170,16 @@ header {
 
 #pokemon {
   display: flex;
-  /* flex-direction: column; */
+  flex-wrap:wrap;
+  /* border: 1px solid blue; */
+  justify-content: space-around;
 }
 
 #pokemon div{
-  display: inline-block;
+  /* display: inline-block; */
   padding: 20px;
   width: 250px;
   height: 230px;
+  margin-top:50px;
   border: 1px solid red;
-}
-
-#pokemon span {
-  font-size: 10px;
 }
