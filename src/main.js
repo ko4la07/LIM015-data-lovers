@@ -4,7 +4,7 @@
 // import data from './data/rickandmorty/rickandmorty.js';
 
 import data from './data/pokemon/pokemon.js';
-import {allPokemon, displayType} from './data.js'
+import {allPokemon, displayType, topTen} from './data.js'
 
 const pokemonData=JSON.parse(JSON.stringify(data));
 // console.log(pokemonData);
@@ -14,11 +14,6 @@ document.getElementById('pokemon').innerHTML=imagesPokemon;
 // console.log(imagesPokemon);
 
 // ------------
-
-// let filtergrass= filterType(pokemonData,'fire');
-// document.getElementById('pokemon_type').innerHTML=filtergrass;
-//console.log(filtergrass);
-
 
 document.getElementById('pokedex').addEventListener('click', function() { 
     displayType(pokemonData,'pokemon','pokedex');
@@ -95,8 +90,6 @@ document.getElementById('type_fairy').addEventListener('click', function() {
 document.getElementById('type_dark').addEventListener('click', function() { 
     displayType(pokemonData,'pokemon_type', 'dark');
 });
-
-
 
 // --------------------------
 
@@ -188,3 +181,8 @@ const pokemonInformationDisplay = (id) => {
     } 
 }
 
+
+// ----------------Top Ten-------------
+let res=topTen(pokemonData);
+document.getElementById('top_ten').innerHTML=res;
+console.log(res);

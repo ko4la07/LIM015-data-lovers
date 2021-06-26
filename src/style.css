@@ -12,6 +12,12 @@ header {
 
 }
 
+header img {
+  position: absolute;
+  left: 50px;
+  top: 10px;
+}
+
 /* -------------Gif------------ */
 
 .box_pokemonGO {
@@ -38,12 +44,13 @@ header {
     background: #0A3977;
     border-radius: 0.5rem;
     position: absolute;
-    top: 6%;
+    top: 4.5%;
     left: 0%;
     font-size: 2rem;
     color: white;
     text-align: center;
     transition: left 0.7s;
+    border: 1px solid white;
 
 }
 
@@ -166,7 +173,7 @@ header {
 #dropdown_more:hover .dropbtn {background-color: #08224E;}
 
 
-/* ------------------Types pokemon--------------- */
+/* ------------------All pokemon--------------- */
 
 #pokemon {
   display: flex;
@@ -176,6 +183,24 @@ header {
 }
 
 #pokemon div{
+  /* display: inline-block; */
+  padding: 20px;
+  width: 250px;
+  height: 230px;
+  margin-top:50px;
+  border: 1px solid red;
+}
+
+/* ------------------Types pokemon--------------- */
+
+#pokemon_type {
+  display: flex;
+  flex-wrap:wrap;
+  /* border: 1px solid blue; */
+  justify-content: space-around;
+}
+
+#pokemon_type div{
   /* display: inline-block; */
   padding: 20px;
   width: 250px;
