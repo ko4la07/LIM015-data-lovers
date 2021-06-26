@@ -1,5 +1,5 @@
 export default {
-  "pokemon": [{
+  "pokemon":[{
     "num": "001",
     "name": "bulbasaur",
     "generation": {

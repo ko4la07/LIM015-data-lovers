@@ -1,6 +1,22 @@
 /* import { example } from './data.js'; */
 // import data from './data/lol/lol.js';
-/* import data from './data/pokemon/pokemon.js'; */
+import pokemon from './data/pokemon/pokemon.js';
+// import pokemon from './data/pokemon/pokemon.js';
+// console.log(pokemon);
+
+import {topTen} from './data.js';
+// const dataPokemon= data.pokemon;
+// const dataPokemon= window.pokemon.data;
+let result=topTen(pokemon);
+
+
+
+// const pokemonData=JSON.parse(pokemon);
+// console.log(pokemonData);
+
+// console.log(data);
+
+
 // import data from './data/rickandmorty/rickandmorty.js';
 
 /* -------- Display ---------- */
@@ -92,3 +108,4 @@ const pokemonInformationDisplay = (id) => {
         document.getElementById('interface_guide').style.display= 'none';
     } 
 }
+/* -------- Top 10 ---------- */
