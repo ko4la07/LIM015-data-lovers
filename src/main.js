@@ -4,11 +4,6 @@ import pokemon from './data/pokemon/pokemon.js';
 // import pokemon from './data/pokemon/pokemon.js';
 // console.log(pokemon);
 
-import {topTen} from './data.js';
-// const dataPokemon= data.pokemon;
-// const dataPokemon= window.pokemon.data;
-let result=topTen(pokemon);
-
 
 
 // const pokemonData=JSON.parse(pokemon);
@@ -37,7 +32,7 @@ document.getElementById('pokemon').innerHTML=imagesPokemon;
 
 
 document.getElementById('pokedex').addEventListener('click', function() { 
-    displayType(pokemonData,'pokemon','pokedex');
+    displayType(pokemonData,'pokemon','loquequieras');
 });
 
 document.getElementById('type_normal').addEventListener('click', function() { 
