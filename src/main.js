@@ -4,7 +4,7 @@
 // import data from './data/rickandmorty/rickandmorty.js';
 
 import data from './data/pokemon/pokemon.js';
-import {allPokemon, displayType, topTen} from './data.js'
+import {allPokemon, displayType, topTen, weaknessFilter} from './data.js'
 
 const pokemonData=JSON.parse(JSON.stringify(data));
 // console.log(pokemonData);
@@ -183,6 +183,43 @@ const pokemonInformationDisplay = (id) => {
 
 
 // ----------------Top Ten-------------
-let res=topTen(pokemonData);
-document.getElementById('top_ten').innerHTML=res;
-console.log(res);
+let top=topTen(pokemonData);
+
+top.map(divPokemon => {
+  document.getElementById('top_ten').innerHTML += divPokemon;
+});
+
+// ----------------Filter Weakness-------------
+//  let moreWeakness=weaknessFilter(pokemonData);
+//  console.log(moreWeakness);
+
+// moreWeakness.map(divPokemon => {
+//   document.getElementById('pokemon_type').innerHTML += divPokemon;
+// });
+
+document.getElementById('more_weaknesses').addEventListener('click', function() {
+    allFilter('moreWeaknesses');
+});
+
+const allFilter= (id) => {
+    
+    if (id === 'moreWeaknesses') {
+        
+        let more=weaknessFilter(pokemonData);
+        let  algo;
+        more.map(divPokemon => {
+              
+             algo += divPokemon;
+              });
+    
+
+        document.getElementById("pokemon").style.display = "none";
+        document.getElementById("pokemon_type").style.display = "flex";
+        document.getElementById("pokemon_type").innerHTML = algo;
+      } 
+    
+};
+
+
+
+
