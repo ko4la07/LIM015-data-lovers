@@ -191,9 +191,3 @@ const pokemonInformationDisplay = (id) => {
         document.getElementById('interface_guide').style.display= 'none';
     } 
 }
-
-
-// ----------------Top Ten-------------
-let res=topTen(pokemonData);
-document.getElementById('top_ten').innerHTML=res;
-console.log(res);
