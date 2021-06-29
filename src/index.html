@@ -6,18 +6,26 @@
     <link type="img/png" rel="icon" href="assets/img/favicon.png">
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   </head>
   <body>
     <!-- <div id="root"></div> -->
 
 <!-- Header -->
-    <header>
-      <img src="assets/img/logo.png" alt="logo" width="160" height="80">
+    <header class="header_container">
+      <img class="item item_img" src="assets/img/logo.png" alt="logo" width="160" height="80">
+        
+        <li class="item item_home" id="home"> Home </li> 
+        <li class="item item_pokedex" id="pokedex"> Pokédex </li>
+        <li class="item item_guide" id="guide"> Guide </li>
+     
     </header>
 
 <!-- Sidebar first version -->
 
-<input type="checkbox" class="checkbox" id="check">
+<!-- <input type="checkbox" class="checkbox" id="check">
 <label for="check" class="menu">&equiv;</label>
 <div class="left_panel" >
     <li>
@@ -25,28 +33,9 @@
     </li>
     <li id="home"> Home </li> 
     <li id="pokedex"> Pokédex </li> 
-    <div>
-    <li id="type_normal">Normal</li>
-    <li id="type_fighting">Fighting</li>
-    <li id="type_flying">Flying</li>
-    <li id="type_poison">Poison</li>
-    <li id="type_ground">Ground</li>
-    <li id="type_rock">Rock</li>
-    <li id="type_bug">Bug</li>
-    <li id="type_ghost">Ghost</li>
-    <li id="type_steel">Steel</li>
-    <li id="type_fire">Fire</li>
-    <li id="type_water">Water</li>
-    <li id="type_grass">Grass</li>
-    <li id="type_electric">Electric</li>
-    <li id="type_psychic">Psychic</li>
-    <li id="type_ice">Ice</li>
-    <li id="type_dragon">Dragon</li>
-    <li id="type_fairy">Fairy</li>
-    <li id="type_dark">Dark</li>
-    </div>
+    
     <li id="guide"> Guide </li>
-</div>
+</div> -->
 
 <!-- Interfaz 1 -->
     <main id="interface_home" style="display: block;"> 
@@ -56,55 +45,85 @@
         </div>
         
       </section>
-      <section>
-        <h1>MEET THE <span>TOP 10</span></h1>
+      <section class="top_text_container">
+        <h1 class="item_title">MEET THE <span>TOP 10</span></h1>
         <p>Meet the pokemon with the highest encounter rate.</p>
       </section>
-      <div id="top_ten"></div>
+        <div id="top_ten"></div>
+      
     </main>
 <!-- Interfaz 2 -->
     <main id="interface_pokedex" style="display: none;">
-      <h1>Pokedéx <span id="pokebola"></span></h1>
-      <p>To be a good pokémon master you must face many challenges and that is why you must know your battle partner. So, choose your pokémon !!! </p>
-      <div id="dropdown_debility">
-        <button class="dropbtn">Weaknesses</button>
-        <div class="dropdown_content">
-          <a id="more_weaknesses">More weaknesses</a>
-          <a>Less weaknesses</a>
-        </div>
-        </div>
-        <div id="dropdown_attack">
-          <button class="dropbtn">Attack</button>
-        <div class="dropdown_content">
-          <a>High attack</a>
-          <a>Small attack</a>
-        </div>
-        </div>
-        <div id="dropdown_defense">
-          <button class="dropbtn">Defensa</button>
-        <div class="dropdown_content">
-          <a>High defense</a>
-          <a>Small defense</a>
-        </div>
-        </div>
-        <div id="dropdown_more">
-          <button class="dropbtn">More</button>
-        <div class="dropdown_content">
-          <a>High escape</a>
-          <!-- <a>Menor huida</a> -->
-          <a>High stamina</a>
-          <!-- <a>Menor resistencia</a> -->
-          <a>High cp</a>
-          <!-- <a>Menor poder</a> -->
-          <a>High hp</a>
-          <!-- <a>Menor poder</a> -->
-        </div>
-        </div> 
+      <div class="pokedex_text_container">
+        <h1>Pokedéx <span id="pokebola"></span></h1>
+        <p>To be a good pokémon master you must face many challenges and that is why you must know your battle partner. So, choose your pokémon !!! </p>
+      </div>
+        <div class="line"></div>
+      <section class="all_filter_container">
+            <div class="item_all type_container">
+                  <a id="type_normal" class="type"> <img src="assets/img/pokemon-normal.png" alt="normal" width="50" height="50"> </a>
+                  <a id="type_fighting" class="type"><img src="assets/img/pokemon-lucha.png" alt="lucha" width="50" height="50"> </a>
+                  <a id="type_flying" class="type"><img src="assets/img/pokemon-volador.png" alt="volador" width="50" height="50"> </a>
+                  <a id="type_poison" class="type"><img src="assets/img/pokemon-veneno.png" alt="veneno" width="50" height="50"> </a>
+                  <a id="type_ground" class="type"><img src="assets/img/pokemon-tierra.png" alt="tierra" width="50" height="50"> </a>
+                  <a id="type_rock" class="type"><img src="assets/img/pokemon-roca.png" alt="roca" width="50" height="50"> </a>
+                  <a id="type_bug" class="type"><img src="assets/img/pokemon-bicho.png" alt="bicho" width="50" height="50"> </a>
+                  <a id="type_ghost" class="type"><img src="assets/img/pokemon-fantasma.png" alt="fantasma" width="50" height="50"> </a>
+                  <a id="type_steel" class="type"><img src="assets/img/pokemon-acero.png" alt="acero" width="50" height="50"> </a>
+                  <a id="type_fire" class="type"><img src="assets/img/pokemon-fuego.png" alt="fuego" width="50" height="50"> </a>
+                  <a id="type_water" class="type"><img src="assets/img/pokemon-agua.png" alt="agua" width="50" height="50"> </a>
+                  <a id="type_grass" class="type"><img src="assets/img/pokemon-planta.png" alt="planta" width="50" height="50"> </a>
+                  <a id="type_electric" class="type"><img src="assets/img/pokemon-eléctrico.png
+                    " alt="eléctrico" width="50" height="50"> </a>
+                  <a id="type_psychic" class="type"><img src="assets/img/pokemon-psíquico.png" alt="psíquico" width="50" height="50"> </a>
+                  <a id="type_ice" class="type"><img src="assets/img/pokemon-hielo.png" alt="hielo" width="50" height="50"> </a>
+                  <a id="type_dragon" class="type"><img src="assets/img/pokemon-dragón.png" alt="dragón" width="50" height="50"> </a>
+                  <a id="type_fairy" class="type"><img src="assets/img/pokemon-fairy.png" alt="fairy" width="50" height="50"> </a>
+                  <a id="type_dark" class="type"><img src="assets/img/pokemon-siniestro.png" alt="siniestro" width="50" height="50"> </a>
+            </div>
+            <div class="item_all filter_container">
+              <div id="dropdown_weaknesses">
+                <button class="dropbtn">Weaknesses</button>
+                <div class="dropdown_content">
+                  <a id="more_weaknesses">&#8593; weaknesses</a>
+                  <a>&#8595; weaknesses</a>
+                </div>
+                </div>
+                <div id="dropdown_attack">
+                  <button class="dropbtn">Attack</button>
+                <div class="dropdown_content">
+                  <a>High attack</a>
+                  <a>Small attack</a>
+                </div>
+                </div>
+                <div id="dropdown_defense">
+                  <button class="dropbtn">Defensa</button>
+                <div class="dropdown_content">
+                  <a id="high_defense">High defense</a>
+                  <a>Small defense</a>
+                </div>
+                </div>
+                <div id="dropdown_more">
+                  <button class="dropbtn">More</button>
+                <div class="dropdown_content">
+                  <a>High escape</a>
+                  <!-- <a>Menor huida</a> -->
+                  <a>High stamina</a>
+                  <!-- <a>Menor resistencia</a> -->
+                  <a>High cp</a>
+                  <!-- <a>Menor poder</a> -->
+                  <a>High hp</a>
+                  <!-- <a>Menor poder</a> -->
+                </div>
+                </div> 
+              </div>
+      </section>
+         <div class="line"></div>
          <div id="pokemon">Pokémon here</div>
          <div id="pokemon_type" style="display: none;"></div>
     </main>
 <!-- Interfaz 3 -->
-      <section id="pokemon_information_bar">
+      <section id="pokemon_information_bar" style="display: none;">
         <div>
           <h3>pokemon name <br> <span>number</span> </h3>
         </div>
@@ -151,17 +170,25 @@
 
       <main id="interface_guide" style="display: none;">
         <h1>Game guide</h1>
-        <section>
-          <h4>Catch pokémon</h4>
-          <p>Find your partner.</p>
-        </section>
-        <section>
-          <h4>PokéStops</h4>
-          <p>Find objects by turning the Photo Disc.</p>
+        <section id="guide_container">
+          <div id="catch_pokemon">
+            <div>
+              <h4>Catch pokémon</h4>
+              <p>Find your partner.</p>
+            </div>
+          </div>
+          <div id="pokestop">
+            <div>
+              <h4>PokéStops</h4>
+              <p>Find objects by turning the Photo Disc.</p>
+            </div>
+          </div>
         </section>
       </main>
 <!-- footer -->
-      <p>© 2021 PokéGO Friend</p>
+      <footer>
+        <p>© 2021 PokéGO Friend</p>
+      </footer>
 
     <script src="main.js" type="module"></script>
   </body>

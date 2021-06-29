@@ -74,7 +74,7 @@ export const topTen = (data) => {
 
   let tenPokemon = sortedArray.slice(0, 10).map((pokemon) => {
     return `<div><span>${pokemon.name} ${pokemon["spawn-chance"]}</span>
-              <img width="120" height="120" src=${pokemon.img} /></div>`;
+              <img width="80" height="80" src=${pokemon.img} /></div>`;
   });
 
   return tenPokemon;
@@ -83,13 +83,27 @@ export const topTen = (data) => {
 // ----------------------------------------
 export const weaknessFilter = (data) => {
   let sortedArray = data.pokemon;
-  sortedArray.sort((a,b) => a['weaknesses'].length - b['weaknesses'].length );
+  sortedArray.sort((a,b) => b['weaknesses'].length - a['weaknesses'].length );
 
   let weakPokemon = sortedArray.map ( (pokemon) => {
-  return `<div><span>${pokemon.name} </span>
+  return `<div><span>${pokemon.name} ${pokemon.weaknesses.length} </span>
   <img width="120" height="120" src=${pokemon.img} /></div>`;
 });
 
 return weakPokemon;
+  
+};
+
+// -----------------------------
+export const highDefense = (data) => {
+  let sortedArray = data.pokemon;
+  sortedArray.sort((a,b) => b['stats']['base-defense'] - a['stats']['base-defense']);
+
+  let high = sortedArray.map ( (pokemon) => {
+  return `<div><span>${pokemon.name} ${pokemon.stats['base-defense']} </span>
+  <img width="120" height="120" src=${pokemon.img} /></div>`;
+});
+
+return high;
   
 };
