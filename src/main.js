@@ -1,17 +1,6 @@
 /* import { example } from './data.js'; */
 // import data from './data/lol/lol.js';
-import pokemon from './data/pokemon/pokemon.js';
-// import pokemon from './data/pokemon/pokemon.js';
-// console.log(pokemon);
-
-
-
-// const pokemonData=JSON.parse(pokemon);
-// console.log(pokemonData);
-
-// console.log(data);
-
-
+/* import data from './data/pokemon/pokemon.js'; */
 // import data from './data/rickandmorty/rickandmorty.js';
 
 import pokemonData from './data/pokemon/pokemon.js';
@@ -31,7 +20,7 @@ document.getElementById('pokemon').innerHTML=imagesPokemon;
 let typeLinks = document.querySelectorAll('.type_container a');
 
 document.getElementById('pokedex').addEventListener('click', function() { 
-    displayType(pokemonData,'pokemon','loquequieras');
+    displayType(pokemonData,'pokemon','pokedex');
 });
 
 document.getElementById('type_normal').addEventListener('click', function() { 
@@ -321,7 +310,6 @@ const pokemonInformationDisplay = (id) => {
 }
 
 
-
 // ----------------Top Ten-------------
 let top=topTen(pokemonData);
 
@@ -371,4 +359,7 @@ const allFilter= (id) => {
       }
     
 };
+
+
+
 

@@ -1,38 +1,10 @@
 // estas funciones son de ejemplo
 
-
-
+// import data from "./data/pokemon/pokemon";
 
 // export const example = () => {
 //   return 'example';
 // };
-
-  
-//   let html="";
-//   data.map(x => {
-//   html +="<img src='"+x.img+"'></img>";
-//       // for(let propiedad of Object.keys(x)){    
-//   return html; 
-//   })
-//   // return html;
-
-  
-
-// for(let propiedad of Object.keys(mascota)){
-// html+="<li>"+propiedad+": "+mascota.especie+"</li>"
-// return namePokemon;
-  // var html="";
-  // html += "<h1>Mascotas</h1>"
-  // datos.map(mascota => {
-  //   html +="<img src='"+mascota.img+"'></img>";
-  //   // for(let propiedad of Object.keys(mascota)){
-  //   //   html+="<li>"+propiedad+": "+mascota.especie+"</li>"
-      
-  //   // }
-  //   html += "<hr/>"
-  // })
-  // document.getElementById("resultado").innerHTML= html;
-
 
 //--------Mostrar pokemon -------
 
@@ -128,15 +100,10 @@ return weakPokemon;
   
 };
 
-
 // -----------------------------
 export const highDefense = (data) => {
   let sortedArray = data.pokemon;
   sortedArray.sort((a,b) => b['stats']['base-defense'] - a['stats']['base-defense']);
-
-    
-}
-
 
   let high = sortedArray.map ( (pokemon) => {
   return `<div><span id='pokemon_${pokemon.num}'>${pokemon.name} ${pokemon.stats['base-defense']} </span>
