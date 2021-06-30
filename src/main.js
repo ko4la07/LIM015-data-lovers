@@ -1,6 +1,17 @@
 /* import { example } from './data.js'; */
 // import data from './data/lol/lol.js';
-/* import data from './data/pokemon/pokemon.js'; */
+import pokemon from './data/pokemon/pokemon.js';
+// import pokemon from './data/pokemon/pokemon.js';
+// console.log(pokemon);
+
+
+
+// const pokemonData=JSON.parse(pokemon);
+// console.log(pokemonData);
+
+// console.log(data);
+
+
 // import data from './data/rickandmorty/rickandmorty.js';
 
 import pokemonData from './data/pokemon/pokemon.js';
@@ -20,11 +31,7 @@ document.getElementById('pokemon').innerHTML=imagesPokemon;
 let typeLinks = document.querySelectorAll('.type_container a');
 
 document.getElementById('pokedex').addEventListener('click', function() { 
-  for(let link of typeLinks){
-    link.classList.remove('linkActivoType');
-  } 
-    displayType(pokemonData,'pokemon','pokedex');
-
+    displayType(pokemonData,'pokemon','loquequieras');
 });
 
 document.getElementById('type_normal').addEventListener('click', function() { 
@@ -314,6 +321,7 @@ const pokemonInformationDisplay = (id) => {
 }
 
 
+
 // ----------------Top Ten-------------
 let top=topTen(pokemonData);
 
@@ -364,38 +372,3 @@ const allFilter= (id) => {
     
 };
 
-// ---------------Pokemon Info------------------------------
-// document.getElementById('pokemon_001').addEventListener('click', function () {
-//     pokemonInfo(1,pokemonData);
-// });
-
-// document.getElementById('pokemon_251').addEventListener('click', function () {
-//   pokemonInfo(251,pokemonData);
-// });
-
-const pokemonInfo = (num, data) => {
-    let info = data.pokemon[parseInt(num)-1];
-    document.getElementById('generation_pokemon').innerHTML= info.generation.name;
-    document.getElementById('height_pokemon').innerHTML= info.size.height;
-    document.getElementById('weight_pokemon').innerHTML= info.size.weight;
-    document.getElementById('rarity_pokemon').innerHTML= info['pokemon-rarity'];
-    document.getElementById('types_pokemon').innerHTML= info.type;
-    document.getElementById('attack_pokemon').innerHTML= info.stats['base-attack'];
-    document.getElementById('defense_pokemon').innerHTML= info.stats['base-defense'];
-    document.getElementById('resistance_pokemon').innerHTML= info.stats['base-stamina'];
-    document.getElementById('max_cp_pokemon').innerHTML= info.stats['max-cp'];
-    document.getElementById('max_hp_pokemon').innerHTML= info.stats['max-hp'];
-    document.getElementById('resistant_pokemon').innerHTML= info.resistant;
-    document.getElementById('weaknesses_pokemon').innerHTML= info.weaknesses;
-    document.getElementById('quick_move_pokemon_0').innerHTML= info['quick-move'][0].name;
-    document.getElementById('damage_quick_0').innerHTML= info['quick-move'][0]['base-damage'];
-    document.getElementById('quick_move_pokemon_1').innerHTML= info['quick-move'][1].name;
-    document.getElementById('damage_quick_1').innerHTML= info['quick-move'][1]['base-damage'];
-    document.getElementById('special_attacks_pokemon_0').innerHTML= info['special-attack'][0].name;
-    document.getElementById('damage_special_0').innerHTML= info['special-attack'][0]['base-damage'];
-    document.getElementById('special_attacks_pokemon_1').innerHTML= info['special-attack'][1].name;
-    document.getElementById('damage_special_1').innerHTML= info['special-attack'][1]['base-damage'];
-  };
-
-  
-//  console.log(pokemonData.pokemon[2]);
