@@ -30,7 +30,7 @@ export const filterType = (data,type) => {
     let imagenPokemon="";
     for (let i = 0; i < data.pokemon.length; i++) {
         if(data.pokemon[i].type[0] == type || data.pokemon[i].type[1] == type){
-            imagenPokemon += "<div><span id='pokemon_"+data.pokemon[i].num + "'>" + data.pokemon[i].name +"</span>"
+            imagenPokemon += "<div><span id='pokemon_"+ data.pokemon[i].num + "'>" + data.pokemon[i].name +"</span>"
             imagenPokemon += "<img width='120' height='120' src='" + data.pokemon[i].img + "'></img></div>";
         }
     }
@@ -69,15 +69,21 @@ export const displayType = (data, id, type) => {
 
 // ---------------------Top ten -----------------
 export const topTen = (data) => {
-  let sortedArray = data.pokemon;
+  // let Array= Object.assign({} , data);
+  // let sortedArray=Array
+
+  let objArray = JSON.parse(JSON.stringify(data))
+  let sortedArray = objArray.pokemon;
+  // let sortedArray = data.pokemon;
   sortedArray.sort((a, b) => b["spawn-chance"] - a["spawn-chance"]);
 
   let tenPokemon = sortedArray.slice(0, 10).map((pokemon) => {
-    return `<div><span>${pokemon.name} ${pokemon["spawn-chance"]}</span>
+    return `<div><span id='pokemon_${pokemon.num}'>${pokemon.name} ${pokemon["spawn-chance"]}</span>
               <img width="80" height="80" src=${pokemon.img} /></div>`;
   });
 
   return tenPokemon;
+  // console.log(sortedArray);
 };
 
 // ----------------------------------------
@@ -100,10 +106,14 @@ export const highDefense = (data) => {
   sortedArray.sort((a,b) => b['stats']['base-defense'] - a['stats']['base-defense']);
 
   let high = sortedArray.map ( (pokemon) => {
-  return `<div><span>${pokemon.name} ${pokemon.stats['base-defense']} </span>
+  return `<div><span id='pokemon_${pokemon.num}'>${pokemon.name} ${pokemon.stats['base-defense']} </span>
   <img width="120" height="120" src=${pokemon.img} /></div>`;
 });
 
 return high;
   
 };
+
+
+// ----------------Info pokemon----------------------
+

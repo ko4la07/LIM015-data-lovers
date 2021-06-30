@@ -125,6 +125,7 @@
 <!-- Interfaz 3 -->
       <section id="pokemon_information_bar" style="display: none;">
         <div>
+          <button>regresar</button>
           <h3>pokemon name <br> <span>number</span> </h3>
         </div>
         <a id="pokemon_about">About me</a>
@@ -132,13 +133,31 @@
         <a id="pokemon_attacks">Attacks</a>
       </section>
       <main id="interface_about" style="display: none;">
-      <div>
-      <p> <b>Generation</b> </p> 
-      <p> <b>Height</b> </p>
-      <p> <b>Weight</b> </p>
-      <p> <b>Pokemon rarity</b> </p> 
-      <p> <b>Type</b> </p>
-      </div>
+        <div>
+          <table>
+            <tr>
+              <td><b>Generation</b></td>
+              <td id="generation_pokemon"></td>
+            </tr>
+            <tr>
+              <td><b>Height</b></td>
+              <td id="height_pokemon"></td>
+            </tr>
+            <tr>
+              <td><b>Weight</b></td>
+              <td id="weight_pokemon"></td>
+            </tr>
+            <tr>
+              <td><b>Pokemon rarity</b></td>
+              <td id="rarity_pokemon"></td>
+            </tr>
+            <tr>
+              <td><b>Type</b></td>
+              <td id="types_pokemon"></td>
+            </tr>
+          </table>
+        </div>
+        
       <div>
         <p>Evolution</p>
         <span>Candy cost</span>
@@ -146,22 +165,70 @@
       </main>
 
     <main id="interface_features" style="display: none;">
+      
       <div>
-        <p> <b>Attack</b> </p>
-        <p> <b>Defense</b> </p>
-        <p> <b>Resistance</b> </p>
-        <p> <b>Max cp</b> </p>
-        <p> <b>Max hp</b> </p> 
-        <p> <b>Resistant</b> </p> 
-        <p> <b>Weaknesses</b> </p>     
+        <table>
+          <tr>
+            <td><b>Attack</b></td>
+            <td id="attack_pokemon"></td>
+          </tr>
+          <tr>
+            <td><b>Defense</b></td>
+            <td id="defense_pokemon"></td>
+          </tr>
+          <tr>
+            <td><b>Resistance</b></td>
+            <td id="resistance_pokemon"></td>
+          </tr>
+          <tr>
+            <td><b>Max cp</b></td>
+            <td id="max_cp_pokemon"></td>
+          </tr>
+          <tr>
+            <td><b>Max hp</b></td>
+            <td id="max_hp_pokemon"></td>
+          </tr>
+          <tr>
+            <td><b>Resistant</b></td>
+            <td id="resistant_pokemon"></td>
+          </tr>
+          <tr>
+            <td><b>Weaknesses</b></td>
+            <td id="weaknesses_pokemon"></td>
+          </tr>
+        </table>     
       </div>
     </main>
 
     <main id="interface_attacks" style="display: none;">
       <div>
-        <p> <b>Damage</b> </p>
-        <p> <b>Quick move</b> </p>
-        <p> <b>Special attacks</b> </p>
+        <table>
+          <tr>
+            <th></th>
+            <th></th> 
+            <th><b>Damage</b></th>
+          </tr>
+          <tr>
+            <td><b>Quick move</b></td>
+            <td id="quick_move_pokemon_0"></td>
+            <td id="damage_quick_0"></td>
+          </tr>
+          <tr>
+            <td><b></b></td>
+            <td id="quick_move_pokemon_1"></td>
+            <td id="damage_quick_1"></td>
+          </tr>
+          <tr>
+            <td><b>Special attacks</b></td>
+            <td id="special_attacks_pokemon_0"></td>
+            <td id="damage_special_0"></td>
+          </tr>
+          <tr>
+            <td><b></b></td>
+            <td id="special_attacks_pokemon_1"></td>
+            <td id="damage_special_1"></td>
+          </tr>
+        </table>
       </div>
     </main>
     
