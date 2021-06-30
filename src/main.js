@@ -20,6 +20,9 @@ document.getElementById('pokemon').innerHTML=imagesPokemon;
 let typeLinks = document.querySelectorAll('.type_container a');
 
 document.getElementById('pokedex').addEventListener('click', function() { 
+  for(let link of typeLinks){
+    link.classList.remove('linkActivoType');
+  }
     displayType(pokemonData,'pokemon','pokedex');
 });
 
@@ -129,6 +132,10 @@ document.getElementById('type_grass').addEventListener('click', function() {
       
       document.getElementById('type_grass').classList.add('linkActivoType');
     displayType(pokemonData,'pokemon_type', 'grass');
+    document.getElementById('pokemon_filter001').addEventListener('click', function() { 
+      pokemonInformationDisplay('pokemon_about');
+      pokemonInfo('001',pokemonData);
+    });
 });
 
 document.getElementById('type_electric').addEventListener('click', function() { 
@@ -185,7 +192,7 @@ document.getElementById('type_dark').addEventListener('click', function() {
     displayType(pokemonData,'pokemon_type', 'dark');
 });
 
-// --------------------------
+// ------------------- Barra de navegación---------------------
 
 let navLinks = document.querySelectorAll('.header_container li');
 
@@ -253,6 +260,12 @@ document.getElementById('pokemon_001').addEventListener('click', function() {
     pokemonInformationDisplay('pokemon_about');
     pokemonInfo('001',pokemonData);
 });
+
+// document.getElementById('pokemon_filter001').addEventListener('click', function() { 
+//   pokemonInformationDisplay('pokemon_about');
+//   pokemonInfo('001',pokemonData);
+// });
+
 document.getElementById('pokemon_251').addEventListener('click', function() { 
   pokemonInformationDisplay('pokemon_about');
   pokemonInfo('251',pokemonData);
@@ -282,6 +295,7 @@ const pokemonInformationDisplay = (id) => {
     //     document.getElementById('interface_attacks').style.display= 'none';
     //     document.getElementById('interface_guide').style.display= 'none';
     // } else 
+    
     if (id == 'pokemon_about') {
         document.getElementById('interface_home').style.display= 'none';
         document.getElementById('interface_pokedex').style.display = 'none';
@@ -307,10 +321,17 @@ const pokemonInformationDisplay = (id) => {
         document.getElementById('interface_attacks').style.display= 'block';
         document.getElementById('interface_guide').style.display= 'none';
     } 
+
+    // if (id=='pokemon_about') {
+    //   document.getElementById('pokemon_filter001').addEventListener('click', function() { 
+    //     pokemonInformationDisplay('pokemon_about');
+    //     pokemonInfo('001',pokemonData);
+    //   });
+    // }
 }
 
 
-// ----------------Top Ten-------------
+// ----------------------Top Ten-----------------------
 let top=topTen(pokemonData);
 
 top.map(divPokemon => {
@@ -319,7 +340,7 @@ top.map(divPokemon => {
 
 // console.log(top);
 
-// ----------------Filter Weakness-------------
+// -----------------------Filter Weakness---------------------
 
 document.getElementById('more_weaknesses').addEventListener('click', function() {
     allFilter('moreWeaknesses');
@@ -335,8 +356,8 @@ const allFilter= (id) => {
         
         let more=weaknessFilter(pokemonData);
         let  algo='';
-        more.map(divPokemon => {
-              
+        more.map(divPokemon => {  
+
              algo += divPokemon;
               });
     
@@ -351,13 +372,13 @@ const allFilter= (id) => {
               
              algo += divPokemon;
               });
-    
+
 
         document.getElementById("pokemon").style.display = "none";
         document.getElementById("pokemon_type").style.display = "flex";
         document.getElementById("pokemon_type").innerHTML = algo;
       }
-    
+   
 };
 
 // ---------------Pokemon Info------------------------------

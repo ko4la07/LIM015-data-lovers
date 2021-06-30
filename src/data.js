@@ -30,7 +30,7 @@ export const filterType = (data,type) => {
     let imagenPokemon="";
     for (let i = 0; i < data.pokemon.length; i++) {
         if(data.pokemon[i].type[0] == type || data.pokemon[i].type[1] == type){
-            imagenPokemon += "<div><span id='pokemon_"+ data.pokemon[i].num + "'>" + data.pokemon[i].name +"</span>"
+            imagenPokemon += "<div><span id='pokemon_filter"+ data.pokemon[i].num + "'>" + data.pokemon[i].name +"</span>"
             imagenPokemon += "<img width='120' height='120' src='" + data.pokemon[i].img + "'></img></div>";
         }
     }

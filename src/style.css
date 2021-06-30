@@ -131,12 +131,8 @@
   width: 500px;
   height: 300px;
   margin: 20px 20px 40px 20px;
-  /* justify-content: flex-end; */
   display: flex;
   flex-direction: column;
-  /* align-content: center; */
-  /* justify-content: center; */
-  /* align-content: flex-start; */
   align-content: center;
   text-align: center;
   justify-content: flex-end;
@@ -161,12 +157,8 @@
   width: 500px;
   height: 300px;
   margin: 20px 20px 40px 20px;
-  /* justify-content: flex-end; */
   display: flex;
   flex-direction: column;
-  /* align-content: center; */
-  /* justify-content: center; */
-  /* align-content: flex-start; */
   align-content: center;
   text-align: center;
   justify-content: flex-end;
@@ -317,7 +309,29 @@
 
 #dropdown_more:hover .dropbtn {background-color: #0A3977;}
 
-/* --------------- */
+/* -------------------Tooltiptext------------------------ */
+.type .tooltiptext {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  visibility: hidden;
+  width: 70px;
+  background-color: #3482A4;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.type:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* ---------------------------------------------- */
 
 .filter_container {
   display: flex;
@@ -499,6 +513,7 @@ footer {
   color: white;
   justify-content: center;
   align-items: center;
+  /* bottom: 0; */
 }
 
 /* -----------------Media screen------------------ */
