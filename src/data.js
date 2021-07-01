@@ -12,7 +12,7 @@ export const allPokemon = (data) => {
   let imagenPokemon = "";
   for (let i = 0; i < data.pokemon.length; i++) {
     imagenPokemon +=
-      "<div><span id='pokemon_" +
+      "<div><span id='" +
       data.pokemon[i].num +
       "'>" +
       data.pokemon[i].name +
@@ -27,11 +27,12 @@ export const allPokemon = (data) => {
 //-------Filtrar por tipo ----------
 
 export const filterType = (data,type) => {
+  let POKEMON = JSON.parse(JSON.stringify(data.pokemon));
     let imagenPokemon="";
-    for (let i = 0; i < data.pokemon.length; i++) {
-        if(data.pokemon[i].type[0] == type || data.pokemon[i].type[1] == type){
-            imagenPokemon += "<div><span id='pokemon_filter"+ data.pokemon[i].num + "'>" + data.pokemon[i].name +"</span>"
-            imagenPokemon += "<img width='120' height='120' src='" + data.pokemon[i].img + "'></img></div>";
+    for (let i = 0; i < POKEMON.length; i++) {
+        if(POKEMON[i].type[0] == type || POKEMON[i].type[1] == type){
+            imagenPokemon += "<div><span id='pokemon_filtro_"+ POKEMON[i].num + "'>" + POKEMON[i].name +"</span>"
+            imagenPokemon += "<img width='120' height='120' src='" + POKEMON[i].img + "'></img></div>";
         }
     }
     return imagenPokemon;

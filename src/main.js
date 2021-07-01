@@ -58,7 +58,7 @@ document.getElementById('type_poison').addEventListener('click', function() {
         link.classList.remove('linkActivoType');
       }
       
-      document.getElementById('type_poison').classList.add('linkActivoType'); 
+    document.getElementById('type_poison').classList.add('linkActivoType'); 
     displayType(pokemonData,'pokemon_type', 'poison');
 });
 
@@ -114,6 +114,7 @@ document.getElementById('type_fire').addEventListener('click', function() {
       
       document.getElementById('type_fire').classList.add('linkActivoType');
     displayType(pokemonData,'pokemon_type', 'fire');
+    displayEachInfoFiltro('fire',pokemonData);
 });
 
 document.getElementById('type_water').addEventListener('click', function() { 
@@ -132,10 +133,7 @@ document.getElementById('type_grass').addEventListener('click', function() {
       
       document.getElementById('type_grass').classList.add('linkActivoType');
     displayType(pokemonData,'pokemon_type', 'grass');
-    document.getElementById('pokemon_filter001').addEventListener('click', function() { 
-      pokemonInformationDisplay('pokemon_about');
-      pokemonInfo('001',pokemonData);
-    });
+    displayEachInfoFiltro('grass',pokemonData);
 });
 
 document.getElementById('type_electric').addEventListener('click', function() { 
@@ -213,6 +211,7 @@ document.getElementById('pokedex').addEventListener('click', function() {
       
       document.getElementById('pokedex').classList.add('linkActivo');
       displayMain('pokedex');
+      displayAllPokedex(pokemonData);
 });
 document.getElementById('guide').addEventListener('click', function() { 
     for(let link of navLinks){
@@ -256,24 +255,28 @@ const displayMain = (id) => {
 // document.getElementById('pokemon').addEventListener('click', function() { 
 //     pokemonInformationDisplay('pokemon');
 // });
-document.getElementById('pokemon_001').addEventListener('click', function() { 
-    pokemonInformationDisplay('pokemon_about');
-    pokemonInfo('001',pokemonData);
-});
+// document.getElementById('pokemon_001').addEventListener('click', function() { 
+//     pokemonInformationDisplay('pokemon_about');
+//     pokemonInfo('001',pokemonData);
+// });
 
 // document.getElementById('pokemon_filter001').addEventListener('click', function() { 
 //   pokemonInformationDisplay('pokemon_about');
 //   pokemonInfo('001',pokemonData);
 // });
 
-document.getElementById('pokemon_251').addEventListener('click', function() { 
-  pokemonInformationDisplay('pokemon_about');
-  pokemonInfo('251',pokemonData);
-});
-document.getElementById('pokemon_016').addEventListener('click', function() { 
-  pokemonInformationDisplay('pokemon_about');
-  pokemonInfo('016',pokemonData);
-});
+// document.getElementById('pokemon_251').addEventListener('click', function() { 
+//   pokemonInformationDisplay('pokemon_about');
+//   pokemonInfo('251',pokemonData);
+// });
+// document.getElementById('pokemon_016').addEventListener('click', function() { 
+//   pokemonInformationDisplay('pokemon_about');
+//   pokemonInfo('016',pokemonData);
+// });
+// document.getElementById('pokedex').addEventListener('click', function() { 
+//   pokemonInformationDisplay('pokemon_about')
+//   displayAllPokedex(pokemonData);
+// });
 document.getElementById('pokemon_about').addEventListener('click', function() { 
   pokemonInformationDisplay('pokemon_about');
 });
@@ -405,9 +408,54 @@ const pokemonInfo = (num, data) => {
   document.getElementById('damage_special_0').innerHTML= info['special-attack'][0]['base-damage'];
   document.getElementById('special_attacks_pokemon_1').innerHTML= info['special-attack'][1].name;
   document.getElementById('damage_special_1').innerHTML= info['special-attack'][1]['base-damage'];
+  document.getElementById('pokemon_img_info').innerHTML= `<img width="120" height="120" src=${info.img} />`;
+  document.getElementById('pokemon_name_num').innerHTML= `${info.name} <br> ${info.num}`;
 };
 
 
 //  console.log(pokemonData.pokemon[2]);
 
+// ----------------------------------------------
+
+const displayEachInfoFiltro =(type,data) => {
+  let POKEMON = JSON.parse(JSON.stringify(data.pokemon));
+  let array=[];
+  
+  POKEMON.map((pokemon) => {
+    if (pokemon.type[0] == type || pokemon.type[1] == type) {
+      array.push(pokemon);
+    }
+  });
+  
+  for (let pokemon of POKEMON) {
+  document.getElementById('pokemon_filtro_'+pokemon.num).addEventListener('click', function(){
+    pokemonInformationDisplay('pokemon_about');
+    pokemonInfo(`${pokemon.num}`,pokemonData);
+  } )
+  }
+  
+};
+
+// console.log(displayEachInfoFiltro('grass',pokemonData));
+
+// -----------------------------------------------
+const displayAllPokedex =(data) => {
+  let POKEMON = JSON.parse(JSON.stringify(data.pokemon));
+  let array=[];
+  
+  POKEMON.map((pokemon) => {
+    
+      array.push(pokemon);
+    
+  });
+  
+  for (let pokemon of POKEMON) {
+  document.getElementById(pokemon.num).addEventListener('click', function(){
+    pokemonInformationDisplay('pokemon_about');
+    pokemonInfo(`${pokemon.num}`,pokemonData);
+  } )
+  }
+};
+
+// console.log(displayAllPokedex(pokemonData));
 

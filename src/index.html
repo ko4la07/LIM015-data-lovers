@@ -123,16 +123,18 @@
          <div id="pokemon_type" style="display: none;"></div>
     </main>
 <!-- Interfaz 3 -->
+    <main>
       <section id="pokemon_information_bar" style="display: none;">
         <div>
           <button>regresar</button>
-          <h3>pokemon name <br> <span>number</span> </h3>
+          <h3 id="pokemon_name_num"> </h3>
+          <p id="pokemon_img_info"></p>
         </div>
         <a id="pokemon_about">About me</a>
         <a id="pokemon_features">Features</a>
         <a id="pokemon_attacks">Attacks</a>
       </section>
-      <main id="interface_about" style="display: none;">
+      <section id="interface_about" style="display: none;">
         <div>
           <table>
             <tr>
@@ -162,9 +164,9 @@
         <p>Evolution</p>
         <span>Candy cost</span>
       </div>
-      </main>
+      </section>
 
-    <main id="interface_features" style="display: none;">
+    <section id="interface_features" style="display: none;">
       
       <div>
         <table>
@@ -198,9 +200,9 @@
           </tr>
         </table>     
       </div>
-    </main>
+    </section>
 
-    <main id="interface_attacks" style="display: none;">
+    <section id="interface_attacks" style="display: none;">
       <div>
         <table>
           <tr>
@@ -230,32 +232,32 @@
           </tr>
         </table>
       </div>
-    </main>
-    
+    </section>
+  </main>
 
 <!-- Interfaz 4 -->
 
-      <main id="interface_guide" style="display: none;">
-        <h1>Game guide</h1>
-        <section id="guide_container">
-          <div id="catch_pokemon">
-            <div>
-              <h4>Catch pokémon</h4>
-              <p>Find your partner.</p>
-            </div>
-          </div>
-          <div id="pokestop">
-            <div>
-              <h4>PokéStops</h4>
-              <p>Find objects by turning the Photo Disc.</p>
-            </div>
-          </div>
-        </section>
-      </main>
+  <main id="interface_guide" style="display: none;">
+    <h1>Game guide</h1>
+    <section id="guide_container">
+      <div id="catch_pokemon">
+        <div>
+          <h4>Catch pokémon</h4>
+          <p>Find your partner.</p>
+        </div>
+      </div>
+      <div id="pokestop">
+        <div>
+          <h4>PokéStops</h4>
+          <p>Find objects by turning the Photo Disc.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 <!-- footer -->
-      <footer>
-        <p>© 2021 PokéGO Friend</p>
-      </footer>
+  <footer>
+    <p>© 2021 PokéGO Friend</p>
+  </footer>
 
     <script src="main.js" type="module"></script>
   </body>
