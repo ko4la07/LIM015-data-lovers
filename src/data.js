@@ -1,93 +1,27 @@
-// estas funciones son de ejemplo
 
-// import data from "./data/pokemon/pokemon";
+//--------------FILTRAR POR TIPO----------------------
 
-// export const example = () => {
-//   return 'example';
-// };
-
-//--------Mostrar pokemon -------
-
-export const allPokemon = (data) => {
-  let imagenPokemon = "";
-  for (let i = 0; i < data.pokemon.length; i++) {
-    imagenPokemon +=
-      "<div><span id='" +
-      data.pokemon[i].num +
-      "'>" +
-      data.pokemon[i].name +
-      "</span>";
-    imagenPokemon +=
-      "<img width='120' height='120' src='" +
-      data.pokemon[i].img +
-      "'></img></div>";
-  }
-  return imagenPokemon;
-};
-//-------Filtrar por tipo ----------
-
-export const filterType = (data,type) => {
+export const filterType= (data,type) => {
   let POKEMON = JSON.parse(JSON.stringify(data.pokemon));
-    let imagenPokemon="";
-    for (let i = 0; i < POKEMON.length; i++) {
-        if(POKEMON[i].type[0] == type || POKEMON[i].type[1] == type){
-            imagenPokemon += "<div><span id='pokemon_filtro_"+ POKEMON[i].num + "'>" + POKEMON[i].name +"</span>"
-            imagenPokemon += "<img width='120' height='120' src='" + POKEMON[i].img + "'></img></div>";
-        }
-    }
-    return imagenPokemon;
-};
-
-//-------Filtrar por tipo Segunda Forma----------
-// export const filterType = (data, type) => {
-//   // let imagenPokemon="";
-
-//   let poke = data.pokemon.map( pokemon => {
-//     if ((pokemon.type).includes(type)) {
-//       return `<div><span>${pokemon.name} ${pokemon.num}</span>
-//               <img width="120" height="120" src=${pokemon.img} /></div>`;
-//     }
-//   });
-
-//   return poke;
-// };
-
-//-----------Mostrar imagenes por tipo---------
-export const displayType = (data, id, type) => {
-  if (id == "pokemon") {
-    document.getElementById("pokemon").style.display = "flex";
-    document.getElementById("pokemon_type").style.display = "none";
-  } else if (id == "pokemon_type") {
-    let filter = filterType(data, type);
-    // filter.map(pokemon => {
-    //     document.getElementById("pokemon_type").innerHTML += pokemon;
-    // });
-    document.getElementById("pokemon_type").innerHTML = filter;
-    document.getElementById("pokemon").style.display = "none";
-    document.getElementById("pokemon_type").style.display = "flex";
+  const predicate = (item) => {
+    return item.type[0] == type || item.type[1] == type;
   }
+  
+  return POKEMON.filter(predicate);
 };
 
 // ---------------------Top ten -----------------
 export const topTen = (data) => {
-  // let Array= Object.assign({} , data);
-  // let sortedArray=Array
-
-  let objArray = JSON.parse(JSON.stringify(data))
-  let sortedArray = objArray.pokemon;
-  // let sortedArray = data.pokemon;
+  let DATA = JSON.parse(JSON.stringify(data))
+  let sortedArray = DATA.pokemon;
   sortedArray.sort((a, b) => b["spawn-chance"] - a["spawn-chance"]);
 
-  let tenPokemon = sortedArray.slice(0, 10).map((pokemon) => {
-    return `<div><span id='pokemon_${pokemon.num}'>${pokemon.name} ${pokemon["spawn-chance"]}</span>
-              <img width="80" height="80" src=${pokemon.img} /></div>`;
-  });
-
-  return tenPokemon;
+  return sortedArray.slice(0,10);
   // console.log(sortedArray);
 };
 
 // ----------------------------------------
+
 export const weaknessFilter = (data) => {
   let sortedArray = data.pokemon;
   sortedArray.sort((a,b) => b['weaknesses'].length - a['weaknesses'].length );
@@ -100,7 +34,15 @@ export const weaknessFilter = (data) => {
 return weakPokemon;
   
 };
+// ----------------------------------------
 
+export const weaknessFilter_2 = (data) => {
+  let sortedArray = data.pokemon;
+  sortedArray.sort((a,b) => b['weaknesses'].length - a['weaknesses'].length );
+
+return sortedArray;
+  
+};
 // -----------------------------
 export const highDefense = (data) => {
   let sortedArray = data.pokemon;
@@ -114,7 +56,20 @@ export const highDefense = (data) => {
 return high;
   
 };
+// -----------------------------
+export const highDefense_2 = (data) => {
+  let sortedArray = data.pokemon;
+  sortedArray.sort((a,b) => b['stats']['base-defense'] - a['stats']['base-defense']);
+
+  let high = sortedArray.map ( (pokemon) => {
+  return `<div><span id='pokemon_${pokemon.num}'>${pokemon.name} ${pokemon.stats['base-defense']} </span>
+  <img width="120" height="120" src=${pokemon.img} /></div>`;
+});
+
+return high;
+  
+};
 
 
-// ----------------Info pokemon----------------------
+
 

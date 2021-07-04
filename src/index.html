@@ -23,7 +23,7 @@
      
     </header>
 
-<!-- Sidebar first version -->
+<!-- Sidebar -->
 
 <!-- <input type="checkbox" class="checkbox" id="check">
 <label for="check" class="menu">&equiv;</label>
@@ -60,6 +60,7 @@
       </div>
         <div class="line"></div>
       <section class="all_filter_container">
+<!-- ----------ICONOS TIPO DE POKEMON----------------- -->       
             <div class="item_all type_container">
                   <a id="type_normal" class="type"><img src="assets/img/pokemon-normal.png" alt="normal" width="50" height="50"> <span class="tooltiptext">Normal</span> </a>
                   <a id="type_fighting" class="type"><img src="assets/img/pokemon-lucha.png" alt="fighting" width="50" height="50"> <span class="tooltiptext">fighting</span> </a>
@@ -81,6 +82,7 @@
                   <a id="type_fairy" class="type"><img src="assets/img/pokemon-fairy.png" alt="fairy" width="50" height="50"><span class="tooltiptext">fairy</span> </a>
                   <a id="type_dark" class="type"><img src="assets/img/pokemon-siniestro.png" alt="dark" width="50" height="50"><span class="tooltiptext">dark</span> </a>
             </div>
+<!-- ----------------DROPDOWN------------------------- -->
             <div class="item_all filter_container">
               <div id="dropdown_weaknesses">
                 <button class="dropbtn">Weaknesses</button>
@@ -119,120 +121,14 @@
               </div>
       </section>
          <div class="line"></div>
-         <div id="pokemon">Pokémon here</div>
+         <div id="pokemon"></div>
          <div id="pokemon_type" style="display: none;"></div>
     </main>
 <!-- Interfaz 3 -->
-    <main>
-      <section id="pokemon_information_bar" style="display: none;">
-        <div>
-          <button>regresar</button>
-          <h3 id="pokemon_name_num"> </h3>
-          <p id="pokemon_img_info"></p>
-        </div>
-        <a id="pokemon_about">About me</a>
-        <a id="pokemon_features">Features</a>
-        <a id="pokemon_attacks">Attacks</a>
+    <main id="interface_about" style="display: none;">
+      <section>
+          <div id="imagen_pokemon"></div>
       </section>
-      <section id="interface_about" style="display: none;">
-        <div>
-          <table>
-            <tr>
-              <td><b>Generation</b></td>
-              <td id="generation_pokemon"></td>
-            </tr>
-            <tr>
-              <td><b>Height</b></td>
-              <td id="height_pokemon"></td>
-            </tr>
-            <tr>
-              <td><b>Weight</b></td>
-              <td id="weight_pokemon"></td>
-            </tr>
-            <tr>
-              <td><b>Pokemon rarity</b></td>
-              <td id="rarity_pokemon"></td>
-            </tr>
-            <tr>
-              <td><b>Type</b></td>
-              <td id="types_pokemon"></td>
-            </tr>
-          </table>
-        </div>
-        
-      <div>
-        <p>Evolution</p>
-        <span>Candy cost</span>
-      </div>
-      </section>
-
-    <section id="interface_features" style="display: none;">
-      
-      <div>
-        <table>
-          <tr>
-            <td><b>Attack</b></td>
-            <td id="attack_pokemon"></td>
-          </tr>
-          <tr>
-            <td><b>Defense</b></td>
-            <td id="defense_pokemon"></td>
-          </tr>
-          <tr>
-            <td><b>Resistance</b></td>
-            <td id="resistance_pokemon"></td>
-          </tr>
-          <tr>
-            <td><b>Max cp</b></td>
-            <td id="max_cp_pokemon"></td>
-          </tr>
-          <tr>
-            <td><b>Max hp</b></td>
-            <td id="max_hp_pokemon"></td>
-          </tr>
-          <tr>
-            <td><b>Resistant</b></td>
-            <td id="resistant_pokemon"></td>
-          </tr>
-          <tr>
-            <td><b>Weaknesses</b></td>
-            <td id="weaknesses_pokemon"></td>
-          </tr>
-        </table>     
-      </div>
-    </section>
-
-    <section id="interface_attacks" style="display: none;">
-      <div>
-        <table>
-          <tr>
-            <th></th>
-            <th></th> 
-            <th><b>Damage</b></th>
-          </tr>
-          <tr>
-            <td><b>Quick move</b></td>
-            <td id="quick_move_pokemon_0"></td>
-            <td id="damage_quick_0"></td>
-          </tr>
-          <tr>
-            <td><b></b></td>
-            <td id="quick_move_pokemon_1"></td>
-            <td id="damage_quick_1"></td>
-          </tr>
-          <tr>
-            <td><b>Special attacks</b></td>
-            <td id="special_attacks_pokemon_0"></td>
-            <td id="damage_special_0"></td>
-          </tr>
-          <tr>
-            <td><b></b></td>
-            <td id="special_attacks_pokemon_1"></td>
-            <td id="damage_special_1"></td>
-          </tr>
-        </table>
-      </div>
-    </section>
   </main>
 
 <!-- Interfaz 4 -->
