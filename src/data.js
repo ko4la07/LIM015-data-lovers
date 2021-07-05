@@ -10,14 +10,13 @@ export const filterType= (data,type) => {
   return POKEMON.filter(predicate);
 };
 
-// ---------------------Top ten -----------------
+// ---------------------TOP TEN -----------------
 export const topTen = (data) => {
   const DATA = JSON.parse(JSON.stringify(data))
   let sortedArray = DATA.pokemon;
   sortedArray.sort((a, b) => b["spawn-chance"] - a["spawn-chance"]);
 
   return sortedArray.slice(0,10);
-  // console.log(sortedArray);
 };
 
 // ----------------------------------------

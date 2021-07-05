@@ -160,69 +160,6 @@
   border-radius: 0px 0px 15px 15px;
 }
 
-/* ---------------------SIDEBAR------------------------- */
-
-/* .menu {
-    width: 2.2rem;
-    height: 2.7rem;
-    background: #0A3977;
-    border-radius: 0.5rem;
-    position: absolute;
-    top: 4.5%;
-    left: 0%;
-    font-size: 2rem;
-    color: white;
-    text-align: center;
-    transition: left 0.7s;
-    border: 1px solid white;
-
-}
-
-.checkbox:checked ~ .menu {
-    left: 40%;
-    border-radius: 0.5rem;
-}
-
-.left_panel {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background: #9ED0E5 ;
-    width: 40%; 
-    height: auto;
-    position: absolute;
-    top: 0;
-    left: -40%; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: left 0.4s;
-    z-index: 2;
-    list-style: none;
-    cursor: pointer;
-}
-
-.checkbox:checked ~ .left_panel{
-    left: 0;
-}
-
-.checkbox {
-    display: none;
-}
-
-.left_panel li {
-    margin: 5px;
-    padding: 5px;
-    font-size: 15px;
-    color: white;
-}
-
-#logo_sidebar {
-    width: 75px;
-    height: 38px;
-} */
-
-
 /* ---------------------DROPDOWN------------------------ */
 
 .dropbtn {
@@ -728,25 +665,6 @@ footer {
     width: 270px;
   }
 }
-
-/* ------------------------POPUP--------------------- */
-
-/* .overlay {
-	background: rgba(0,0,0,.3);
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	align-items: center;
-	justify-content: center;
-	display: flex;
-	visibility: hidden;
-}
-
-.overlay.active {
-	visibility: visible;
-} */
 
 /* ---------LINK ACTIVO PARA OCULTAR Y MOSTRAR LA INFORMACION DE CADA POKEMON----------- */
 

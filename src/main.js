@@ -136,7 +136,6 @@ const mostrarPokemon = (data) => {
 // --------------
     const objectInfo = { Generation: pokemon.generation.name, Height: pokemon.size.height, Weight: pokemon.size.weight, Rarity: pokemon['pokemon-rarity'], Type: pokemon.type, Encounter : pokemon['spawn-chance'], Attack: pokemon.stats['base-attack'], Defense: pokemon.stats['base-defense'], Resistance: pokemon.stats['base-stamina'], Cp: pokemon.stats['max-cp'], Hp: pokemon.stats['max-hp'], Resistant: pokemon.resistant, Weaknesses: pokemon.weaknesses };
 // ---------------
-    // IMGCONTAINER.appendChild(imgPokemon);
     btnCloseCONTAINER.appendChild(btnClose);
     IMGCONTAINER.appendChild(btnCloseCONTAINER);
     nameNumeCONTAINER.appendChild(namePokemon);
@@ -422,25 +421,6 @@ document.getElementById('type_dark').addEventListener('click', function() {
       document.getElementById('type_dark').classList.add('linkActivoType');
     displayType('pokemon_type', 'dark');
 });
-
-// ------------------------POPUP--------------------------------------
-
-
-// let btnAbrirPopup = document.getElementById('btnOpen_001'),
-// // overlay = document.getElementById('overlay'),
-// popup = document.getElementById('information_pokemon_001'),
-// btnCerrarPopup = document.getElementById('btnClose_001');
-
-// btnAbrirPopup.addEventListener('click', function(){
-// // overlay.classList.add('active');
-// popup.classList.add('active');
-// });
-
-// btnCerrarPopup.addEventListener('click', function(e){
-// e.preventDefault();
-// // overlay.classList.remove('active');
-// popup.classList.remove('active');
-// });
 
 // -----------------------Filter Weakness---------------------
 
