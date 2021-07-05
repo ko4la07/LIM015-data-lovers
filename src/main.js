@@ -4,7 +4,7 @@ import { filterType, highDefense,topTen, weaknessFilter} from './data.js'
 
 // ------------------- BARRA DE NAVEGACIÓN---------------------
 
-let navLinks = document.querySelectorAll('.header_container li');
+const navLinks = document.querySelectorAll('.header_container li');
 
 document.getElementById('home').addEventListener('click', function() { 
     
@@ -60,7 +60,8 @@ const displayMain = (id) => {
 
 // ----------------------TOP TEN--------------------------
 
-let ten=topTen(pokemonData);
+const ten=topTen(pokemonData);
+
 ten.forEach((pokemon) => {
   let tenPokemonContainer = document.createElement('div');
   let spanPokemon = document.createElement('span');
@@ -93,7 +94,7 @@ const printInformation =(obj, divi)=>{
 // -------------------Mostramos todos los pokemon con su información-------------------------------
 
 const mostrarPokemon = (data) => {
-  let DATA = data.pokemon;
+  const DATA = data.pokemon;
 
   DATA.forEach((pokemon) => {
     let pokemonContainer = document.createElement('div');
@@ -133,7 +134,7 @@ const mostrarPokemon = (data) => {
     let numPokemon=document.createElement('div')
     numPokemon.textContent=`${pokemon.num}`;
 // --------------
-    let objectInfo = { Generation: pokemon.generation.name, Height: pokemon.size.height, Weight: pokemon.size.weight, Rarity: pokemon['pokemon-rarity'], Type: pokemon.type, Encounter : pokemon['spawn-chance'], Attack: pokemon.stats['base-attack'], Defense: pokemon.stats['base-defense'], Resistance: pokemon.stats['base-stamina'], Cp: pokemon.stats['max-cp'], Hp: pokemon.stats['max-hp'], Resistant: pokemon.resistant, Weaknesses: pokemon.weaknesses };
+    const objectInfo = { Generation: pokemon.generation.name, Height: pokemon.size.height, Weight: pokemon.size.weight, Rarity: pokemon['pokemon-rarity'], Type: pokemon.type, Encounter : pokemon['spawn-chance'], Attack: pokemon.stats['base-attack'], Defense: pokemon.stats['base-defense'], Resistance: pokemon.stats['base-stamina'], Cp: pokemon.stats['max-cp'], Hp: pokemon.stats['max-hp'], Resistant: pokemon.resistant, Weaknesses: pokemon.weaknesses };
 // ---------------
     // IMGCONTAINER.appendChild(imgPokemon);
     btnCloseCONTAINER.appendChild(btnClose);
@@ -160,7 +161,7 @@ const mostrarPokemon = (data) => {
     btnOpen.onclick = function() {
       displayMain('about');
 
-      let Links = document.querySelectorAll('.information_pokemon');
+      const Links = document.querySelectorAll('.information_pokemon');
       for(let link of Links){
         link.classList.remove('Active');
       }
@@ -205,7 +206,7 @@ for (let i = 0; i < data.length; i++) {
   btnOpen.onclick = function() {
     displayMain('about');
 
-    let Links = document.querySelectorAll('.information_pokemon');
+    const Links = document.querySelectorAll('.information_pokemon');
     for(let link of Links){
       link.classList.remove('Active');
     }
@@ -217,9 +218,9 @@ document.getElementById('pokemon_type').appendChild(CONTAINER);
 
 };
 // ----------------CREANDO EL CONTENIDO DE LOS FILTROS POR TIPO-----------------
-let NEWDATA = JSON.parse(JSON.stringify(pokemonData));
+const NEWDATA = JSON.parse(JSON.stringify(pokemonData));
 
-let setTypes = ['normal','fighting','flying','poison','ground','rock','bug','ghost','steel','fire','water','grass','electric','psychic','ice','dragon','fairy','dark'];
+const setTypes = ['normal','fighting','flying','poison','ground','rock','bug','ghost','steel','fire','water','grass','electric','psychic','ice','dragon','fairy','dark'];
 
 const printTypeFilter = (array) =>{
   for(let type of array ){
@@ -249,7 +250,7 @@ const displayType = (id,type) => {
 };
 // ---------------Acciones al presionar los iconos de filtro por tipo----------------
 
-let typeLinks = document.querySelectorAll('.type_container a');
+const typeLinks = document.querySelectorAll('.type_container a');
 
 document.getElementById('pokedex').addEventListener('click', function() { 
   for(let link of typeLinks){

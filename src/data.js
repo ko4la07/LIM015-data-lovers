@@ -2,7 +2,7 @@
 //--------------FILTRAR POR TIPO----------------------
 
 export const filterType= (data,type) => {
-  let POKEMON = JSON.parse(JSON.stringify(data.pokemon));
+  const POKEMON = JSON.parse(JSON.stringify(data.pokemon));
   const predicate = (item) => {
     return item.type[0] == type || item.type[1] == type;
   }
@@ -12,7 +12,7 @@ export const filterType= (data,type) => {
 
 // ---------------------Top ten -----------------
 export const topTen = (data) => {
-  let DATA = JSON.parse(JSON.stringify(data))
+  const DATA = JSON.parse(JSON.stringify(data))
   let sortedArray = DATA.pokemon;
   sortedArray.sort((a, b) => b["spawn-chance"] - a["spawn-chance"]);
 

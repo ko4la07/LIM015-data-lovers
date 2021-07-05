@@ -413,7 +413,7 @@
   flex-direction: column;
   /* display: inline-block; */
   padding: 20px;
-  width: 220px;
+  width: 200px;
   height: 230px;
   /* margin-top:50px; */
   /* margin-bottom:50px; */
@@ -502,8 +502,8 @@
 }
 
 .information_pokemon img {
-  height: 180px;
-  width: 180px;
+  height: 160px;
+  width: 160px;
   z-index: 2;
 }
 /* .container_img div {
@@ -521,13 +521,15 @@
 
 .container_img {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   background-image: url('assets/img/fondoPokemonPlantas.gif');
   background-size: cover;
   background-position: center;
-  /* background-color: #BAD1F0; */
+  /* background-color: #dcf7ec; */
+  /* border: 1.5px solid #3482A4; */
   /* margin: 20px 20px; */
-  padding: 30px;
+  padding: 10px;
   box-shadow: 2px 2px 2px 2px rgba(52, 130, 164, 0.1);
   flex: 1;
 }
@@ -541,7 +543,7 @@
   display: flex;
   flex-direction: column;
   line-height: 25px;
-  margin: -75px 0px 0px;
+  margin: -80px 0px 0px;
   padding: 60px 30px 30px;
   background-color: white;
   border-radius: 15px 15px 0px 0px;
@@ -567,17 +569,20 @@
 
 /* --------------CONTAINER IMAGEN DE LA INFORMACIÓN---------- */
 .container_img .btnINFO{
- width: 400px;
+ width: 200px;
  height: 40px;
 }
 
 .container_img .nameNumINFO {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  font-size: 25px;
-  color: white;
-  width: 250px;
+  font-size: 20px;
+  color: #f8f8f8;
+  width: 130px;
   height: 40px; 
+}
+.container_img .imagenINFO {
+z-index: 2;
 }
 
 
@@ -621,7 +626,7 @@
 .item_title {
   margin-bottom: 18px;
 }
-/* --------------BOTON OPEN - CLOSE-------------------- */
+/* --------------BOTON CLOSE INFORMACION-------------------- */
 .btnClose {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -630,7 +635,7 @@
   border-radius: 10px;
   background-color: rgba(0,0,0,0);
   color: #0A3977;
-  width: 90px;
+  width: 70px;
   height: 55px;
   background-image: url('assets/img/flechaCeleste.png');
   background-position: center;
@@ -671,7 +676,7 @@ footer {
 
   .itemInfo {
     margin: 0px;
-    padding: 30px;
+    padding: 10px;
     border-radius: 0px;
   }
   .container_img img{
@@ -688,10 +693,19 @@ footer {
     width: 285px;
   }
   .container_img {
+    display: flex;
     margin-left: 170px;
     border-radius: 15px 0px 0px 15px;
     margin-top: 20px;
     margin-bottom: 20px;
+    border: 1.5px solid #3482A4;
+  }
+  .container_img .btnINFO{
+    width:380px;
+    justify-content: left;
+   }
+   .container_img .nameNumINFO {
+    width: 270px;
   }
 }
 
