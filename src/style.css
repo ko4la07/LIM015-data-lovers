@@ -417,11 +417,28 @@
   height: 230px;
   /* margin-top:50px; */
   /* margin-bottom:50px; */
-  border: 1px solid blue;
+  border: 1px solid #3482A4;
   margin: 45px 10px ;
+  border-radius: 15px;
+  background-color: #dcf7ec;
 }
-
-
+#pokemon div span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: 10px;
+ 
+}
+#pokemon div button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  height: 35px;
+  border: 1px solid #3482A4;
+  border-radius: 15px;
+ }
+ #pokemon button:hover {
+   background-color: #3482A4;
+   color: white;
+ }
 /* ---------------XXXXXXXXXXXXXXXXXX---Types pokemon--------------- */
 
 /* #pokemon_type{
