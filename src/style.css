@@ -464,13 +464,33 @@
 } */
 
 .filter div {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
-  width: 250px;
+  width: 200px;
   height: 230px;
-  border: 1px solid red;
+  border: 1px solid #3482A4;
   margin: 45px 10px ;
-  /* flex: 1; */
+  border-radius: 15px;
+  background-color: #dcf7ec;
 }
+.filter div span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: 10px;
+ 
+}
+.filter div button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  height: 35px;
+  border: 1px solid #3482A4;
+  border-radius: 15px;
+ }
+ .filter button:hover {
+   background-color: #3482A4;
+   color: white;
+ }
 
 /* .filter div span {
   font-family: 'Roboto', sans-serif;
