@@ -106,19 +106,28 @@ const mostrarPokemon = (data) => {
     btnOpen.className =`btnOpen_${pokemon.num}`;
     btnOpen.setAttribute("id", `btnOpen_${pokemon.num}`);
     
-
     let divInformacion = document.createElement('div');
     divInformacion.className =`information_pokemon`;
     divInformacion.setAttribute("id", `information_pokemon_${pokemon.num}`);
     divInformacion.style.display='none';
+    let IMGCONTAINER = document.createElement('div');
+    IMGCONTAINER.className='itemInfo container_img';
+    let INFOCONTAINER = document.createElement('div');
+    INFOCONTAINER.className='itemInfo container_info';
     let btnClose =document.createElement('button');
-    btnClose.innerHTML='Cerrar';
-    btnClose.className =`btnClose_${pokemon.num}`;
+    btnClose.innerHTML='volver';
+    btnClose.className =`btnClose`;
     btnClose.setAttribute("id", `btnClose_${pokemon.num}`);
     
+    let imgInfoCONTAINER=document.createElement('div');
+    imgInfoCONTAINER.className ='imagenINFO';
+    let btnCloseCONTAINER = document.createElement('div');
+    btnCloseCONTAINER.className = 'btnINFO';
+    let nameNumeCONTAINER = document.createElement('div');
+    nameNumeCONTAINER.className = 'nameNumINFO';
+
     let imgInfo = document.createElement('img');
     imgInfo.src = `${pokemon.img}`;
-    
     let namePokemon=document.createElement('div')
     namePokemon.textContent=`${pokemon.name}`;
     let numPokemon=document.createElement('div')
@@ -126,15 +135,21 @@ const mostrarPokemon = (data) => {
 // --------------
     let objectInfo = { Generation: pokemon.generation.name, Height: pokemon.size.height, Weight: pokemon.size.weight, Rarity: pokemon['pokemon-rarity'], Type: pokemon.type, Encounter : pokemon['spawn-chance'], Attack: pokemon.stats['base-attack'], Defense: pokemon.stats['base-defense'], Resistance: pokemon.stats['base-stamina'], Cp: pokemon.stats['max-cp'], Hp: pokemon.stats['max-hp'], Resistant: pokemon.resistant, Weaknesses: pokemon.weaknesses };
 // ---------------
-    divInformacion.appendChild(imgInfo);
-    divInformacion.appendChild(imgPokemon);
-    divInformacion.appendChild(namePokemon);
-    divInformacion.appendChild(numPokemon);
-    printInformation(objectInfo,divInformacion);
-    divInformacion.appendChild(btnClose);
+    // IMGCONTAINER.appendChild(imgPokemon);
+    btnCloseCONTAINER.appendChild(btnClose);
+    IMGCONTAINER.appendChild(btnCloseCONTAINER);
+    nameNumeCONTAINER.appendChild(namePokemon);
+    nameNumeCONTAINER.appendChild(numPokemon);
+    IMGCONTAINER.appendChild(nameNumeCONTAINER);
+    
+    imgInfoCONTAINER.appendChild(imgInfo);
+    IMGCONTAINER.appendChild(imgInfoCONTAINER);
+    divInformacion.appendChild(IMGCONTAINER);
+    printInformation(objectInfo,INFOCONTAINER);
+    divInformacion.appendChild(INFOCONTAINER);
 
-    pokemonContainer.appendChild(spanPokemon);
     pokemonContainer.appendChild(imgPokemon);
+    pokemonContainer.appendChild(spanPokemon);
     pokemonContainer.appendChild(btnOpen);
 
     document.getElementById("pokemon").appendChild(pokemonContainer);
