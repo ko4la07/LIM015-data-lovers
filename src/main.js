@@ -197,8 +197,9 @@ for (let i = 0; i < data.length; i++) {
   btnOpen.className =`filter_btnOpen_${data[i].num}`;
   btnOpen.setAttribute("id", `filter_btnOpen_${data[i].num}`);
 
-  pokemonContainer.appendChild(spanPokemon);
+  
   pokemonContainer.appendChild(imgPokemon);
+  pokemonContainer.appendChild(spanPokemon);
   pokemonContainer.appendChild(btnOpen);
   CONTAINER.appendChild(pokemonContainer);
 
