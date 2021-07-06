@@ -450,21 +450,6 @@ document.querySelectorAll(".type").forEach(el => {
 
         if(filtro == 'more_weaknesses'){
           const MOREWEAK = moreWeaknesses(dataFilterType);
-      //     MOREWEAK.map( (pokemon) => {
-
-      //     let ANI = document.createElement('div');
-      //     ANI.setAttribute("id", 'POKEPOKE');
-      //     let imagenANI=document.createElement('img');
-      //     imagenANI.src= `${pokemon.img}`;
-      //     let SPAN = document.createElement('span');
-      //     SPAN.textContent=`N.weak:${pokemon.weaknesses}`;
-      //     ANI.appendChild(SPAN);
-      //     ANI.appendChild(imagenANI);
-      //     document.getElementById('pokemon_type_filter').appendChild(ANI);
-      //   }
-      // );
-
-      // ----------------------------
       let CONTAINER = document.createElement('div');
       // CONTAINER.style.display='none';
       CONTAINER.className = `filter`;
