@@ -113,3 +113,16 @@ return high;
   
 // };
 
+// // ------------SEARCH FILTER-----------------------
+const d= document;
+export const searchFilter=(input, selector) => {
+  d.addEventListener("keyup", (e) => {
+  if(e.target.matches(input)) {
+    console.log(e.target.value);
+    d.querySelectorAll(selector).forEach((element) => element.textContent.toLowerCase().includes(e.target.value) 
+    ? element.classList.remove("busqueda") 
+    : element.classList.add("busqueda")
+    );
+  }
+  });
+}

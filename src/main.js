@@ -1,6 +1,7 @@
 
 import pokemonData from './data/pokemon/pokemon.js';
-import { filterType,topTen, moreWeaknesses} from './data.js'
+
+import { filterType, highDefense,topTen, weaknessFilter, searchFilter} from './data.js'
 
 
 // ------------------- BARRA DE NAVEGACIÓN---------------------
@@ -99,6 +100,7 @@ const mostrarPokemon = (data) => {
 
   DATA.forEach((pokemon) => {
     let pokemonContainer = document.createElement('div');
+    pokemonContainer.className =`pokemon_search`;
     let spanPokemon = document.createElement('span');
     spanPokemon.textContent = `${pokemon.name} ${pokemon.num}`;
     let imgPokemon = document.createElement('img');
@@ -188,6 +190,7 @@ let CONTAINER = document.createElement('div');
 for (let i = 0; i < data.length; i++) {
 
   let pokemonContainer = document.createElement('div');
+  pokemonContainer.className =`pokemon_search`;
   let spanPokemon = document.createElement('span');
   spanPokemon.textContent = `${data[i].name} ${data[i].num}`;
   let imgPokemon = document.createElement('img');
@@ -511,4 +514,8 @@ document.querySelectorAll(".type").forEach(el => {
 });
 });    
 
+// -----------------Filtro de busqueda ---------------------------------
+let searchPokemon = searchFilter(".search", ".pokemon_search")
+
+// -----------------Btn para volver a ver todos los pokemones ----------
 
