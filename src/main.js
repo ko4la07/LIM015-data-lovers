@@ -1,6 +1,8 @@
 
 import pokemonData from './data/pokemon/pokemon.js';
+
 import { filterType, highDefense,topTen, weaknessFilter, searchFilter} from './data.js'
+
 
 // ------------------- BARRA DE NAVEGACIÓN---------------------
 
@@ -424,46 +426,93 @@ document.getElementById('type_dark').addEventListener('click', function() {
     displayType('pokemon_type', 'dark');
 });
 
-// -----------------------Filter Weakness---------------------
+// -------------------------FILTRO WEAKNESSES--------------------------
 
-document.getElementById('more_weaknesses').addEventListener('click', function() {
-    allFilter('moreWeaknesses');
+document.querySelectorAll(".type").forEach(el => {
+  el.addEventListener("click", e => {
+    const filtroTipoDefault = e.target.getAttribute("id");
+    // console.log(filtroTipoDefault);
+    const dataFilterType = filterType(pokemonData,filtroTipoDefault);
+
+
+    const eve = document.getElementById("pokemon_type_filter"),
+    deleted = [];
+    Array.from(eve.childNodes).forEach( child => {eve.removeChild(child); deleted.push(child.tagName);});
+
+  // console.log(deleted); 
+
+    document.querySelectorAll(".dropdown").forEach(el => {
+      el.addEventListener("click", e => {
+        const filtro = e.target.getAttribute("id");
+
+        const eve = document.getElementById("pokemon_type_filter"),
+        deleted = [];
+        Array.from(eve.childNodes).forEach( child => {eve.removeChild(child); deleted.push(child.tagName);});
+
+      // console.log(deleted); 
+
+        if(filtro == 'more_weaknesses'){
+          const MOREWEAK = moreWeaknesses(dataFilterType);
+      //     MOREWEAK.map( (pokemon) => {
+
+      //     let ANI = document.createElement('div');
+      //     ANI.setAttribute("id", 'POKEPOKE');
+      //     let imagenANI=document.createElement('img');
+      //     imagenANI.src= `${pokemon.img}`;
+      //     let SPAN = document.createElement('span');
+      //     SPAN.textContent=`N.weak:${pokemon.weaknesses}`;
+      //     ANI.appendChild(SPAN);
+      //     ANI.appendChild(imagenANI);
+      //     document.getElementById('pokemon_type_filter').appendChild(ANI);
+      //   }
+      // );
+
+      // ----------------------------
+      let CONTAINER = document.createElement('div');
+      // CONTAINER.style.display='none';
+      CONTAINER.className = `filter`;
+      CONTAINER.setAttribute("id", `filter_${filtroTipoDefault}`);
+    for (let i = 0; i < MOREWEAK.length; i++) {
+    
+      let pokemonContainer = document.createElement('div');
+      let spanPokemon = document.createElement('span');
+      spanPokemon.textContent = `${MOREWEAK[i].name} ${MOREWEAK[i].num}`;
+      let imgPokemon = document.createElement('img');
+      imgPokemon.src = `${MOREWEAK[i].img}`;
+      let btnOpen =document.createElement('button');
+      btnOpen.innerHTML='Information';
+      btnOpen.className =`filter_btnOpen_${MOREWEAK[i].num}`;
+      btnOpen.setAttribute("id", `filter_btnOpen_${MOREWEAK[i].num}`);
+    
+      
+      pokemonContainer.appendChild(imgPokemon);
+      pokemonContainer.appendChild(spanPokemon);
+      pokemonContainer.appendChild(btnOpen);
+      CONTAINER.appendChild(pokemonContainer);
+    
+      
+      btnOpen.onclick = function() {
+        displayMain('about');
+    
+        const Links = document.querySelectorAll('.information_pokemon');
+        for(let link of Links){
+          link.classList.remove('Active');
+        }
+        document.getElementById(`information_pokemon_${MOREWEAK[i].num}`).classList.add('Active');
+      };
+      
+    }
+    document.getElementById('pokemon_type_filter').appendChild(CONTAINER);
+      // ----------------------------------
+    document.getElementById('pokemon_type_filter').style.display = 'flex';
+    document.getElementById('pokemon').style.display = 'none';
+    document.getElementById('pokemon_type').style.display = 'none';
+    }
+  });
 });
 
-document.getElementById('high_defense').addEventListener('click', function() {
-    allFilter('highDefense');
 });
-
-const allFilter= (id) => {
-    
-    if (id === 'moreWeaknesses') {
-        
-        let more=weaknessFilter(pokemonData);
-        let  algo='';
-        more.map(divPokemon => {  
-
-             algo += divPokemon;
-              });
-    
-
-        // document.getElementById("pokemon").style.display = "none";
-        // document.getElementById("pokemon_type").style.display = "flex";
-        document.getElementById("pokemon").innerHTML = algo;
-      } else if(id === 'highDefense'){
-        let high=highDefense(pokemonData);
-        let  algo='';
-        high.map(divPokemon => {
-              
-             algo += divPokemon;
-              });
-
-
-        // document.getElementById("pokemon").style.display = "none";
-        // document.getElementById("pokemon_type").style.display = "flex";
-        document.getElementById("pokemon").innerHTML = algo;
-      }
-   
-};
+});    
 
 // -----------------Filtro de busqueda ---------------------------------
 let searchPokemon = searchFilter(".search", ".pokemon_search")

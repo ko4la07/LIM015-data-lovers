@@ -435,6 +435,27 @@
   font-weight: 300;
 } */
 
+/* -----------------Filtrado de tipo + otros filtros---------- */
+#pokemon_type_filter{
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  /* justify-content: center; */
+  align-content: center;
+  /* border: 1px solid red; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* align-content: center; */
+  flex: 1;
+}
+
+#pokemon_type_filter .filter{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 /* --------------------INTERFACE INFORMACIÓN DEL POKÉMON------------------ */
 
 .information_pokemon {

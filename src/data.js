@@ -21,22 +21,22 @@ export const topTen = (data) => {
 
 // ----------------------------------------
 
-export const weaknessFilter = (data) => {
-  let sortedArray = data.pokemon;
-  sortedArray.sort((a,b) => b['weaknesses'].length - a['weaknesses'].length );
+// export const weaknessFilter = (data) => {
+//   let sortedArray = data.pokemon;
+//   sortedArray.sort((a,b) => b['weaknesses'].length - a['weaknesses'].length );
 
-  let weakPokemon = sortedArray.map ( (pokemon) => {
-  return `<div><span>${pokemon.name} ${pokemon.weaknesses.length} </span>
-  <img width="120" height="120" src=${pokemon.img} /></div>`;
-});
+//   let weakPokemon = sortedArray.map ( (pokemon) => {
+//   return `<div><span>${pokemon.name} ${pokemon.weaknesses.length} </span>
+//   <img width="120" height="120" src=${pokemon.img} /></div>`;
+// });
 
-return weakPokemon;
+// return weakPokemon;
   
-};
-// ----------------------------------------
+// };
+// -----------------------FILTRO MORE WEAKNESSES-------------------------
 
-export const weaknessFilter_2 = (data) => {
-  let sortedArray = data.pokemon;
+export const moreWeaknesses = (data) => {
+  let sortedArray = data;
   sortedArray.sort((a,b) => b['weaknesses'].length - a['weaknesses'].length );
 
 return sortedArray;
@@ -69,8 +69,49 @@ return high;
   
 };
 
+// -----------------------------------------------
+// document.querySelectorAll(".type").forEach(el => {
+//   el.addEventListener("click", e => {
+//     const id = e.target.getAttribute("id");
+//     console.log("Se ha clickeado el id "+id);
+//   });
+// });
 
+// --------------------------------------------
+// let typePOKE='';
+// document.querySelectorAll(".type").forEach(el => {
+//   el.addEventListener("click", e => {
+//       const typePokemon = e.target.getAttribute("id");
+//       // return typePokemon;
+//       // sessionStorage.setItem("typePokemon", typePokemon);
+//       // console.log("Se ha clickeado el id "+typePokemon);
+//     });
+//   });
 
+  // const typePOKE = sessionStorage.getItem("typePokemon")
+// console.log(typePOKE);
+
+// export const weaknessFilter = (data) => {
+//   // const DATA =[];
+//   document.querySelectorAll(".type").forEach(el => {
+//     let sortedArray =[];
+//     el.addEventListener("click", e => {
+//         const typePokemon = e.target.getAttribute("id");
+//        sortedArray = filterType (data,typePokemon);
+
+//         // return typePokemon;
+//         // sessionStorage.setItem("typePokemon", typePokemon);
+//         // console.log("Se ha clickeado el id "+typePokemon);
+//       });
+//     });
+//   // const typePOKE = sessionStorage.getItem("typePokemon");
+//   // const DATA = filterType (data,typePokemon);
+//   // let sortedArray = DATA;
+//   sortedArray.sort((a,b) => b['weaknesses'].length - a['weaknesses'].length );
+
+// return sortedArray;
+  
+// };
 
 // // ------------SEARCH FILTER-----------------------
 const d= document;
