@@ -1,4 +1,4 @@
-import {topTen, filterType} from '../src/data.js';
+import {topTen, filterType, moreWeaknesses} from '../src/data.js';
 
 // ----------TEST TOP TEN ------------
 
@@ -64,7 +64,54 @@ describe('filterType', () => {
 });
 
 // ------------TEST FILTRADOS-----------------------
+describe('moreWeaknesses', () => {
+  const samplePokemonData = [
+    {
+      "name": "alakazam",
+      "weaknesses": [
+        "bug",
+        "ghost",
+        "dark"
+      ]
+    },
+    {
+      "name": "bulbasaur",
+      "weaknesses": [
+        "fire",
+        "ice",
+        "flying",
+        "psychic"
+      ]
+    }
+  ];
+  const resultMoreWeaknesses = [
+    {
+      "name": "bulbasaur",
+      "weaknesses": [
+        "fire",
+        "ice",
+        "flying",
+        "psychic"
+      ]
+    },
+    {
+      "name": "alakazam",
+      "weaknesses": [
+        "bug",
+        "ghost",
+        "dark"
+      ]
+    }
 
+  ];
+  it('is a function', () => {
+    expect(typeof moreWeaknesses).toBe('function');
+  });
+
+  it('returns `resultMoreWeaknesses`', () => {
+    expect(moreWeaknesses(samplePokemonData)).toEqual(resultMoreWeaknesses);
+  });
+});
 
 // -------------------------------------------------------------
 

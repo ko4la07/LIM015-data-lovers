@@ -1,7 +1,7 @@
 
 import pokemonData from './data/pokemon/pokemon.js';
 
-import { filterType, highDefense,topTen, weaknessFilter, searchFilter} from './data.js'
+import { filterType, topTen, moreWeaknesses, searchFilter, lessWeaknesses, highAttack, smallAttack} from './data.js'
 
 
 // ------------------- BARRA DE NAVEGACIÓN---------------------
@@ -222,13 +222,13 @@ document.getElementById('pokemon_type').appendChild(CONTAINER);
 
 };
 // ----------------CREANDO EL CONTENIDO DE LOS FILTROS POR TIPO-----------------
-const NEWDATA = JSON.parse(JSON.stringify(pokemonData));
+const POKEMONDATA = JSON.parse(JSON.stringify(pokemonData));
 
 const setTypes = ['normal','fighting','flying','poison','ground','rock','bug','ghost','steel','fire','water','grass','electric','psychic','ice','dragon','fairy','dark'];
 
 const printTypeFilter = (array) =>{
   for(let type of array ){
-    let  typeData = filterType(NEWDATA,type);
+    let  typeData = filterType(POKEMONDATA,type);
     filtrado(typeData,type);
   }
 };
@@ -426,20 +426,19 @@ document.getElementById('type_dark').addEventListener('click', function() {
     displayType('pokemon_type', 'dark');
 });
 
-// -------------------------FILTRO WEAKNESSES--------------------------
+// -------------------------TODOS LOS FILTROS----------------------------
 
 document.querySelectorAll(".type").forEach(el => {
   el.addEventListener("click", e => {
     const filtroTipoDefault = e.target.getAttribute("id");
-    // console.log(filtroTipoDefault);
+
     const dataFilterType = filterType(pokemonData,filtroTipoDefault);
 
+    let initialData = JSON.parse(JSON.stringify(pokemonData));
 
     const eve = document.getElementById("pokemon_type_filter"),
     deleted = [];
     Array.from(eve.childNodes).forEach( child => {eve.removeChild(child); deleted.push(child.tagName);});
-
-  // console.log(deleted); 
 
     document.querySelectorAll(".dropdown").forEach(el => {
       el.addEventListener("click", e => {
@@ -449,58 +448,78 @@ document.querySelectorAll(".type").forEach(el => {
         deleted = [];
         Array.from(eve.childNodes).forEach( child => {eve.removeChild(child); deleted.push(child.tagName);});
 
-      // console.log(deleted); 
-
         if(filtro == 'more_weaknesses'){
-          const MOREWEAK = moreWeaknesses(dataFilterType);
-      let CONTAINER = document.createElement('div');
-      // CONTAINER.style.display='none';
-      CONTAINER.className = `filter`;
-      CONTAINER.setAttribute("id", `filter_${filtroTipoDefault}`);
-    for (let i = 0; i < MOREWEAK.length; i++) {
+          initialData = moreWeaknesses(dataFilterType);
     
-      let pokemonContainer = document.createElement('div');
-      let spanPokemon = document.createElement('span');
-      spanPokemon.textContent = `${MOREWEAK[i].name} ${MOREWEAK[i].num}`;
-      let imgPokemon = document.createElement('img');
-      imgPokemon.src = `${MOREWEAK[i].img}`;
-      let btnOpen =document.createElement('button');
-      btnOpen.innerHTML='Information';
-      btnOpen.className =`filter_btnOpen_${MOREWEAK[i].num}`;
-      btnOpen.setAttribute("id", `filter_btnOpen_${MOREWEAK[i].num}`);
-    
-      
-      pokemonContainer.appendChild(imgPokemon);
-      pokemonContainer.appendChild(spanPokemon);
-      pokemonContainer.appendChild(btnOpen);
-      CONTAINER.appendChild(pokemonContainer);
-    
-      
-      btnOpen.onclick = function() {
-        displayMain('about');
-    
-        const Links = document.querySelectorAll('.information_pokemon');
-        for(let link of Links){
-          link.classList.remove('Active');
-        }
-        document.getElementById(`information_pokemon_${MOREWEAK[i].num}`).classList.add('Active');
-      };
-      
-    }
-    document.getElementById('pokemon_type_filter').appendChild(CONTAINER);
-      // ----------------------------------
-    document.getElementById('pokemon_type_filter').style.display = 'flex';
-    document.getElementById('pokemon').style.display = 'none';
-    document.getElementById('pokemon_type').style.display = 'none';
-    }
-  });
-});
+        } else if(filtro == 'less_weaknesses'){
+          initialData = lessWeaknesses(dataFilterType);
+        } else if(filtro == 'high_attack'){
+          initialData = highAttack(dataFilterType);
+        } else if(filtro == 'small_attack'){
+          initialData = smallAttack(dataFilterType);
+        } 
+        // else if(filtro == 'high_defense'){
+        //   initialData = highDefense(dataFilterType);
+        // } else if(filtro == 'small_defense'){
+        //   initialData = smallDefense(dataFilterType);
+        // } else if(filtro == 'high_escape'){
+        //   initialData = highEscape(dataFilterType);
+        // } else if(filtro == 'high_stamina'){
+        //   initialData = highStamina(dataFilterType);
+        // } else if(filtro == 'high_cp'){
+        //   initialData = highCp(dataFilterType);
+        // } else if(filtro == 'high_hp'){
+        //   initialData = highHp(dataFilterType);
+        // }
 
-});
+        let CONTAINER = document.createElement('div');
+          // CONTAINER.style.display='none';
+          CONTAINER.className = `filter`;
+          CONTAINER.setAttribute("id", `filter_${filtroTipoDefault}`);
+        for (let i = 0; i < initialData.length; i++) {
+        
+          let pokemonContainer = document.createElement('div');
+          pokemonContainer.className =`pokemon_search`;
+          let spanPokemon = document.createElement('span');
+          spanPokemon.textContent = `${initialData[i].name} ${initialData[i].num}`;
+          let imgPokemon = document.createElement('img');
+          imgPokemon.src = `${initialData[i].img}`;
+          let btnOpen =document.createElement('button');
+          btnOpen.innerHTML='Information';
+          btnOpen.className =`filter_btnOpen_${initialData[i].num}`;
+          btnOpen.setAttribute("id", `filter_btnOpen_${initialData[i].num}`);
+        
+          
+          pokemonContainer.appendChild(imgPokemon);
+          pokemonContainer.appendChild(spanPokemon);
+          pokemonContainer.appendChild(btnOpen);
+          CONTAINER.appendChild(pokemonContainer);
+        
+          
+          btnOpen.onclick = function() {
+            displayMain('about');
+        
+            const Links = document.querySelectorAll('.information_pokemon');
+            for(let link of Links){
+              link.classList.remove('Active');
+            }
+            document.getElementById(`information_pokemon_${initialData[i].num}`).classList.add('Active');
+          };
+          
+        }
+        document.getElementById('pokemon_type_filter').appendChild(CONTAINER);
+          // ----------------------------------
+        document.getElementById('pokemon_type_filter').style.display = 'flex';
+        document.getElementById('pokemon').style.display = 'none';
+        document.getElementById('pokemon_type').style.display = 'none';
+        });
+      });
+    });
 });    
 
 // -----------------Filtro de busqueda ---------------------------------
-let searchPokemon = searchFilter(".search", ".pokemon_search")
+
+searchFilter(".search", ".pokemon_search");
 
 // -----------------Btn para volver a ver todos los pokemones ----------
 
