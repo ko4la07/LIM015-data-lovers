@@ -1,7 +1,7 @@
 
 import pokemonData from './data/pokemon/pokemon.js';
 
-import { filterType, topTen, moreWeaknesses, searchFilter, lessWeaknesses, highAttack, smallAttack} from './data.js'
+import { filterType, topTen, moreWeaknesses, searchFilter, lessWeaknesses, highAttack, smallAttack, highDefense, smallDefense, highEscape, highStamina, highCp, highHp} from './data.js'
 
 
 // ------------------- BARRA DE NAVEGACIÓN---------------------
@@ -458,19 +458,19 @@ document.querySelectorAll(".type").forEach(el => {
         } else if(filtro == 'small_attack'){
           initialData = smallAttack(dataFilterType);
         } 
-        // else if(filtro == 'high_defense'){
-        //   initialData = highDefense(dataFilterType);
-        // } else if(filtro == 'small_defense'){
-        //   initialData = smallDefense(dataFilterType);
-        // } else if(filtro == 'high_escape'){
-        //   initialData = highEscape(dataFilterType);
-        // } else if(filtro == 'high_stamina'){
-        //   initialData = highStamina(dataFilterType);
-        // } else if(filtro == 'high_cp'){
-        //   initialData = highCp(dataFilterType);
-        // } else if(filtro == 'high_hp'){
-        //   initialData = highHp(dataFilterType);
-        // }
+        else if(filtro == 'high_defense'){
+          initialData = highDefense(dataFilterType);
+        } else if(filtro == 'small_defense'){
+          initialData = smallDefense(dataFilterType);
+        } else if(filtro == 'high_escape'){
+          initialData = highEscape(dataFilterType);
+        } else if(filtro == 'high_stamina'){
+          initialData = highStamina(dataFilterType);
+        } else if(filtro == 'high_cp'){
+          initialData = highCp(dataFilterType);
+        } else if(filtro == 'high_hp'){
+          initialData = highHp(dataFilterType);
+        }
 
         let CONTAINER = document.createElement('div');
           // CONTAINER.style.display='none';

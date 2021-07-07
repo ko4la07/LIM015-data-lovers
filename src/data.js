@@ -68,3 +68,42 @@ export const searchFilter=(input, selector) => {
   }
   });
 }
+
+// -----------------------FILTRO HIGH DEFENSE----------------------------
+export const highDefense = (data) => {
+  let sortedArray = data;
+  sortedArray.sort((a,b) => b.stats["base-defense"] - a.stats["base-defense"]);
+  return sortedArray;
+};
+
+// -----------------------FILTRO SMALL DEFENSE----------------------------
+export const smallDefense = (data) =>{
+  let sortedArray = data;
+  sortedArray.sort((a,b) => a.stats["base-defense"] - b.stats["base-defense"]);
+  return sortedArray;
+};
+// -----------------------FILTRO HIGH ESCAPE----------------------------
+export const highEscape = (data) =>{
+  let sortedArray = data;
+  sortedArray.sort((a,b) => b.encounter["base-flee-rate"] - a.encounter["base-flee-rate"]);
+  return sortedArray;
+};
+// -----------------------FILTRO HIGH STAMINA----------------------------
+export const highStamina = (data) =>{
+  let sortedArray = data;
+  sortedArray.sort((a,b) => b.stats["base-stamina"] - a.stats["base-stamina"]);
+  return sortedArray;
+};
+
+// -----------------------FILTRO HIGH CP----------------------------
+export const highCp = (data) =>{
+  let sortedArray = data;
+  sortedArray.sort((a,b) => b.stats["max-cp"] - a.stats["max-cp"]);
+  return sortedArray;
+};
+// -----------------------FILTRO HIGH HP----------------------------
+export const highHp = (data) =>{
+  let sortedArray = data;
+  sortedArray.sort((a,b) => b.stats["max-hp"] - a.stats["max-hp"]);
+  return sortedArray;
+};
