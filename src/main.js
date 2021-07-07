@@ -521,5 +521,4 @@ document.querySelectorAll(".type").forEach(el => {
 
 searchFilter(".search", ".pokemon_search");
 
-// -----------------Btn para volver a ver todos los pokemones ----------
 

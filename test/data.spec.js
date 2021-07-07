@@ -1,6 +1,6 @@
-import {topTen, filterType, moreWeaknesses} from '../src/data.js';
+import {topTen, filterType, moreWeaknesses,lessWeaknesses,highAttack, smallAttack,highDefense,smallDefense,highEscape,highStamina,highCp, highHp } from '../src/data.js';
 
-// ----------TEST TOP TEN ------------
+// ------------------TEST TOP TEN----------------------
 
 describe('topTen', () => {
   const samplePokemonData = {"pokemon": [
@@ -27,7 +27,7 @@ describe('topTen', () => {
   });
 });
 
-// ----------------TEST FILTRADO POR TIPO---------------------
+// -------------------TEST FILTRADO POR TIPO---------------------
 
 describe('filterType', () => {
   const samplePokemonData = {"pokemon": [
@@ -63,7 +63,7 @@ describe('filterType', () => {
   });
 });
 
-// ------------TEST FILTRADOS-----------------------
+// -------------------TEST WEAKNESSES---------------------
 describe('moreWeaknesses', () => {
   const samplePokemonData = [
     {
@@ -113,14 +113,415 @@ describe('moreWeaknesses', () => {
   });
 });
 
-// -------------------------------------------------------------
+describe('lessWeaknesses', () => {
+  const samplePokemonData = [
+    {
+      "name": "alakazam",
+      "weaknesses": [
+        "bug",
+        "ghost",
+        "dark"
+      ]
+    },
+    {
+      "name": "bulbasaur",
+      "weaknesses": [
+        "fire",
+        "ice",
+        "flying",
+        "psychic"
+      ]
+    }
+  ];
+  const resultLessWeaknesses = [
+    {
+      "name": "alakazam",
+      "weaknesses": [
+        "bug",
+        "ghost",
+        "dark"
+      ]
+    },
+    {
+      "name": "bulbasaur",
+      "weaknesses": [
+        "fire",
+        "ice",
+        "flying",
+        "psychic"
+      ]
+    }
+  ];
+  it('is a function', () => {
+    expect(typeof lessWeaknesses).toBe('function');
+  });
 
-// describe('anotherExample', () => {
-//   it('is a function', () => {
-//     expect(typeof anotherExample).toBe('function');
-//   });
+  it('returns `resultLessWeaknesses`', () => {
+    expect(lessWeaknesses(samplePokemonData)).toEqual(resultLessWeaknesses);
+  });
+});
 
-//   it('returns `anotherExample`', () => {
-//     expect(anotherExample()).toBe('OMG');
-//   });
-// });
+// ----------------------TEST ATTACK----------------------
+const sampleData = [
+  {
+    "name": "bulbasaur",
+    "stats": {
+      "base-attack": "118",
+      "base-defense": "111",
+      "base-stamina": "128",
+      "max-cp": "1115",
+      "max-hp": "113"
+    },
+    "encounter": {
+      "base-flee-rate": "0.1",
+      "base-capture-rate": "0.2"
+    }
+  },
+  {
+    "name": "alakazam",
+    "stats": {
+      "base-attack": "271",
+      "base-defense": "167",
+      "base-stamina": "146",
+      "max-cp": "3057",
+      "max-hp": "127"
+    },
+    "encounter": {
+      "base-flee-rate": "0.05",
+      "base-capture-rate": "0.1"
+    }
+  }
+];
+
+describe('highAttack', () => {
+  const resultHighAttack = [
+    {
+      "name": "alakazam",
+      "stats": {
+        "base-attack": "271",
+        "base-defense": "167",
+        "base-stamina": "146",
+        "max-cp": "3057",
+        "max-hp": "127"
+      },
+      "encounter": {
+        "base-flee-rate": "0.05",
+        "base-capture-rate": "0.1"
+      }
+    },
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      },
+      "encounter": {
+        "base-flee-rate": "0.1",
+        "base-capture-rate": "0.2"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof highAttack).toBe('function');
+  });
+
+  it('returns `resultHighAttack`', () => {
+    expect(highAttack(sampleData)).toEqual(resultHighAttack);
+  });
+});
+
+describe('smallAttack', () => {
+  const resultSmallAttack = [
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      },
+      "encounter": {
+        "base-flee-rate": "0.1",
+        "base-capture-rate": "0.2"
+      }
+    },
+    {
+      "name": "alakazam",
+      "stats": {
+        "base-attack": "271",
+        "base-defense": "167",
+        "base-stamina": "146",
+        "max-cp": "3057",
+        "max-hp": "127"
+      },
+      "encounter": {
+        "base-flee-rate": "0.05",
+        "base-capture-rate": "0.1"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof smallAttack).toBe('function');
+  });
+
+  it('returns `resultSmallAttack`', () => {
+    expect(smallAttack(sampleData)).toEqual(resultSmallAttack);
+  });
+});
+
+// ----------------------TEST DEFENSE-----------------------
+describe('highDefense', () => {
+  const resultHighDefense = [
+    {
+      "name": "alakazam",
+      "stats": {
+        "base-attack": "271",
+        "base-defense": "167",
+        "base-stamina": "146",
+        "max-cp": "3057",
+        "max-hp": "127"
+      },
+      "encounter": {
+        "base-flee-rate": "0.05",
+        "base-capture-rate": "0.1"
+      }
+    },
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      },
+      "encounter": {
+        "base-flee-rate": "0.1",
+        "base-capture-rate": "0.2"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof highDefense).toBe('function');
+  });
+
+  it('returns `resultHighDefense`', () => {
+    expect(highDefense(sampleData)).toEqual(resultHighDefense);
+  });
+});
+
+describe('smallDefense', () => {
+  const resultSmallDefense = [
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      },
+      "encounter": {
+        "base-flee-rate": "0.1",
+        "base-capture-rate": "0.2"
+      }
+    },
+    {
+      "name": "alakazam",
+      "stats": {
+        "base-attack": "271",
+        "base-defense": "167",
+        "base-stamina": "146",
+        "max-cp": "3057",
+        "max-hp": "127"
+      },
+      "encounter": {
+        "base-flee-rate": "0.05",
+        "base-capture-rate": "0.1"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof smallDefense).toBe('function');
+  });
+
+  it('returns `resultSmallDefense`', () => {
+    expect(smallDefense(sampleData)).toEqual(resultSmallDefense);
+  });
+});
+
+// -----------------------TEST MORE-----------------------
+describe('highEscape', () => {
+  const resultHighEscape = [
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      },
+      "encounter": {
+        "base-flee-rate": "0.1",
+        "base-capture-rate": "0.2"
+      }
+    },
+    {
+      "name": "alakazam",
+      "stats": {
+        "base-attack": "271",
+        "base-defense": "167",
+        "base-stamina": "146",
+        "max-cp": "3057",
+        "max-hp": "127"
+      },
+      "encounter": {
+        "base-flee-rate": "0.05",
+        "base-capture-rate": "0.1"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof highEscape).toBe('function');
+  });
+
+  it('returns `resultHighEscape`', () => {
+    expect(highEscape(sampleData)).toEqual(resultHighEscape);
+  });
+});
+
+describe('highStamina', () => {
+  const resultHighStamina = [
+    {
+      "name": "alakazam",
+      "stats": {
+        "base-attack": "271",
+        "base-defense": "167",
+        "base-stamina": "146",
+        "max-cp": "3057",
+        "max-hp": "127"
+      },
+      "encounter": {
+        "base-flee-rate": "0.05",
+        "base-capture-rate": "0.1"
+      }
+    },
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      },
+      "encounter": {
+        "base-flee-rate": "0.1",
+        "base-capture-rate": "0.2"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof highStamina).toBe('function');
+  });
+
+  it('returns `resultHighStamina`', () => {
+    expect(highStamina(sampleData)).toEqual(resultHighStamina);
+  });
+});
+
+describe('highCp', () => {
+  const resultHighCp = [
+    {
+      "name": "alakazam",
+      "stats": {
+        "base-attack": "271",
+        "base-defense": "167",
+        "base-stamina": "146",
+        "max-cp": "3057",
+        "max-hp": "127"
+      },
+      "encounter": {
+        "base-flee-rate": "0.05",
+        "base-capture-rate": "0.1"
+      }
+    },
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      },
+      "encounter": {
+        "base-flee-rate": "0.1",
+        "base-capture-rate": "0.2"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof highCp).toBe('function');
+  });
+
+  it('returns `resultHighCp`', () => {
+    expect(highCp(sampleData)).toEqual(resultHighCp);
+  });
+});
+
+describe('highHp', () => {
+  const resultHighHp = [
+    {
+      "name": "alakazam",
+      "stats": {
+        "base-attack": "271",
+        "base-defense": "167",
+        "base-stamina": "146",
+        "max-cp": "3057",
+        "max-hp": "127"
+      },
+      "encounter": {
+        "base-flee-rate": "0.05",
+        "base-capture-rate": "0.1"
+      }
+    },
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      },
+      "encounter": {
+        "base-flee-rate": "0.1",
+        "base-capture-rate": "0.2"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof highHp).toBe('function');
+  });
+
+  it('returns `resultHighHp`', () => {
+    expect(highHp(sampleData)).toEqual(resultHighHp);
+  });
+});
+// ---------------------------------------------------------
+
+
