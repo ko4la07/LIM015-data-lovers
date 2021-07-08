@@ -55,7 +55,7 @@ return sortedArray;
   
 };
 
-// // ------------SEARCH FILTER-----------------------
+// // ----------------------SEARCH FILTER-----------------------
 const d= document;
 export const searchFilter=(input, selector) => {
   d.addEventListener("keyup", (e) => {
@@ -107,3 +107,32 @@ export const highHp = (data) =>{
   sortedArray.sort((a,b) => b.stats["max-hp"] - a.stats["max-hp"]);
   return sortedArray;
 };
+
+// --------------------------STATISTICS-----------------------------
+
+// -----------------------Average Attack------------------------------
+export const averageAttack = (data) => {
+  let myArray = [];
+  for (let i=0; i < data.length; i++){
+    let attackItem = data[i].stats['base-attack'];
+    myArray.push(parseInt(attackItem));
+  }
+  let sum = myArray.reduce(
+        (prev, item) => prev + item,
+    0,
+    );
+  return sum/data.length;
+  };
+// -----------------------Average Stamina------------------------------
+export const averageStamina = (data) => {
+  let myArray = [];
+  for (let i=0; i < data.length; i++){
+    let attackItem = data[i].stats['base-stamina'];
+    myArray.push(parseInt(attackItem));
+  }
+  let sum = myArray.reduce(
+        (prev, item) => prev + item,
+    0,
+    );
+  return sum/data.length;
+  };

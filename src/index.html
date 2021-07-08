@@ -19,11 +19,12 @@
         
         <li class="item item_home" id="home"> Home </li> 
         <li class="item item_pokedex" id="pokedex"> Pokédex </li>
+        <li class="item item_statistics" id="statistics"> Statistics </li>
         <li class="item item_guide" id="guide"> Guide </li>
      
     </header>
 
-<!-- Interfaz 1 -->
+<!-- Interfaz Home -->
     <main id="interface_home" style="display: block;"> 
         <div class="box_pokemonGO">
           <div class="pokemonGO_gif">
@@ -36,7 +37,7 @@
         <div id="top_ten"></div>
       
     </main>
-<!-- Interfaz 2 -->
+<!-- Interfaz Pokédex -->
     <main id="interface_pokedex" style="display: none;">
       <div class="pokedex_text_container">
         <h1>Pokedéx <span id="pokebola"></span></h1>
@@ -109,14 +110,29 @@
          <div id="pokemon_type" style="display: none;"></div>
          <div id="pokemon_type_filter" style="display: none;"></div>
     </main>
-<!-- Interfaz 3 -->
-    <main id="interface_about" style="display: none;">
+<!-- Interfaz About -->
+  <main id="interface_about" style="display: none;">
       <section>
           <div id="imagen_pokemon"></div>
       </section>
   </main>
 
-<!-- Interfaz 4 -->
+<!-- Interfaz Statistics -->
+<main id="interface_statistics" style="display: none;">
+
+  <div class="chart-container">
+    <canvas id="chartAttack"></canvas>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="chartStamina"></canvas>
+  </div>
+  <div class="chart-container">
+    <canvas id="chartPercent"></canvas>
+  </div>
+</main>
+
+<!-- Interfaz Guide -->
 
   <main id="interface_guide" style="display: none;">
     <h1>Game guide</h1>
@@ -141,5 +157,6 @@
   </footer>
 
     <script src="main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
   </body>
 </html>

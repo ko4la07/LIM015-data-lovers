@@ -1,7 +1,7 @@
 
 import pokemonData from './data/pokemon/pokemon.js';
 
-import { filterType, topTen, moreWeaknesses, searchFilter, lessWeaknesses, highAttack, smallAttack, highDefense, smallDefense, highEscape, highStamina, highCp, highHp} from './data.js'
+import { filterType, topTen, moreWeaknesses, searchFilter, lessWeaknesses, highAttack, smallAttack, highDefense, smallDefense, highEscape, highStamina, highCp, highHp, averageAttack,averageStamina} from './data.js'
 
 
 // ------------------- BARRA DE NAVEGACIÓN---------------------
@@ -26,7 +26,16 @@ document.getElementById('pokedex').addEventListener('click', function() {
       document.getElementById('pokedex').classList.add('linkActivo');
       displayMain('pokedex');
         
-      });
+});
+document.getElementById('statistics').addEventListener('click', function() { 
+
+  for(let link of navLinks){
+      link.classList.remove('linkActivo');
+    }
+    
+    document.getElementById('statistics').classList.add('linkActivo');
+    displayMain('statistics');
+});
 document.getElementById('guide').addEventListener('click', function() { 
     for(let link of navLinks){
         link.classList.remove('linkActivo');
@@ -41,23 +50,33 @@ const displayMain = (id) => {
       document.getElementById('interface_home').style.display= 'block';
       document.getElementById('interface_pokedex').style.display = 'none';
       document.getElementById('interface_about').style.display = 'none';
+      document.getElementById('interface_statistics').style.display= 'none';
       document.getElementById('interface_guide').style.display= 'none';
     } else if (id == 'pokedex') {
       document.getElementById('interface_home').style.display= 'none';
       document.getElementById('interface_pokedex').style.display = 'block';
       document.getElementById('interface_about').style.display = 'none';
+      document.getElementById('interface_statistics').style.display= 'none';
       document.getElementById('interface_guide').style.display= 'none';
     } else if (id == 'about'){
       document.getElementById('interface_home').style.display= 'none';
       document.getElementById('interface_pokedex').style.display = 'none';
       document.getElementById('interface_about').style.display = 'block';
+      document.getElementById('interface_statistics').style.display= 'none';
+      document.getElementById('interface_guide').style.display= 'none';
+    } else if (id == 'statistics'){
+      document.getElementById('interface_home').style.display= 'none';
+      document.getElementById('interface_pokedex').style.display = 'none';
+      document.getElementById('interface_about').style.display = 'none';
+      document.getElementById('interface_statistics').style.display= 'block';
       document.getElementById('interface_guide').style.display= 'none';
     } else if (id == 'guide'){
       document.getElementById('interface_home').style.display= 'none';
       document.getElementById('interface_pokedex').style.display = 'none';
       document.getElementById('interface_about').style.display = 'none';
+      document.getElementById('interface_statistics').style.display= 'none';
       document.getElementById('interface_guide').style.display= 'block';
-  }  
+    }  
 };
 
 // ----------------------TOP TEN--------------------------
@@ -431,7 +450,7 @@ document.getElementById('type_dark').addEventListener('click', function() {
 document.querySelectorAll(".type").forEach(el => {
   el.addEventListener("click", e => {
     const filtroTipoDefault = e.target.getAttribute("id");
-
+    
     const dataFilterType = filterType(pokemonData,filtroTipoDefault);
 
     let initialData = JSON.parse(JSON.stringify(pokemonData));
@@ -450,15 +469,13 @@ document.querySelectorAll(".type").forEach(el => {
 
         if(filtro == 'more_weaknesses'){
           initialData = moreWeaknesses(dataFilterType);
-    
         } else if(filtro == 'less_weaknesses'){
           initialData = lessWeaknesses(dataFilterType);
         } else if(filtro == 'high_attack'){
           initialData = highAttack(dataFilterType);
         } else if(filtro == 'small_attack'){
           initialData = smallAttack(dataFilterType);
-        } 
-        else if(filtro == 'high_defense'){
+        } else if(filtro == 'high_defense'){
           initialData = highDefense(dataFilterType);
         } else if(filtro == 'small_defense'){
           initialData = smallDefense(dataFilterType);
@@ -521,4 +538,239 @@ document.querySelectorAll(".type").forEach(el => {
 
 searchFilter(".search", ".pokemon_search");
 
+// ----------------------Statistics-----------------------------
 
+// ------------------------Average Attack-------------------------
+const pokemonChartData = JSON.parse(JSON.stringify(pokemonData));
+
+let avrgAttack =[];
+for(let type of setTypes){
+  let dataFilter = filterType(pokemonChartData,type);
+  let avrg = averageAttack(dataFilter);
+  avrgAttack.push(avrg.toFixed(0));
+}
+
+let dataAttack = {
+  labels: setTypes,
+  datasets: [{
+    label: "Average attack for type",
+    backgroundColor:[
+      "rgba(255, 159, 64, 0.2)",
+      "rgba(255, 99, 132, 0.2)",
+      "rgba(75, 192, 192, 0.2)",
+      "rgba(153, 102, 255, 0.2)",
+      "rgba(94,69,44,0.2)",
+      "rgba(161,148,135,0.2)",
+      "rgba(202,234,114,0.2)",
+      "rgba(130,123,116,0.2)",
+      "rgba(60,49,38,0.2)",
+      "rgba(255, 87, 51,0.2)",
+      "rgba(9, 121, 182,0.2)",
+      "rgba(88, 214, 141,0.2)",
+      "rgba(231,222,38,0.2)",
+      "rgba(223, 38, 231,0.2)",
+      "rgba(103, 242, 243,0.2)",
+      "rgba(122, 243, 103,0.2)",
+      "rgba(218, 247, 166,0.2)",
+      "rgba(104, 54, 137,0.2)",
+    ],
+    borderColor:[
+      "rgb(255, 159, 64)",
+      "rgb(255, 99, 132)",
+      "rgb(75, 192, 192)",
+      "rgb(153, 102, 255)",
+      "rgb(94,69,44)",
+      "rgb(161,148,135)",
+      "rgb(202,234,114)",
+      "rgb(130,123,116)",
+      "rgb(60,49,38)",
+      "rgb(255, 87, 51)",
+      "rgb(9, 121, 182)",
+      "rgb(88, 214, 141)",
+      "rgb(231,222,38)",
+      "rgb(223, 38, 231)",
+      "rgb(103, 242, 243)",
+      "rgb(122, 243, 103)",
+      "rgb(218, 247, 166)",
+      "rgb(104, 54, 137)",
+    ],
+    borderWidth: 2,
+    hoverBackgroundColor: "rgba(52,130,164,0.6)",
+    hoverBorderColor: "rgba(8,34,78,1)",
+    data: avrgAttack,
+  }]
+};
+
+let optionsAttack = {
+  maintainAspectRatio: false,
+  scales: {
+    yAxes: [{
+      stacked: true,
+      gridLines: {
+        display: true,
+        color: "rgba(255,99,132,0.2)"
+      }
+    }],
+    xAxes: [{
+      gridLines: {
+        display: false
+      }
+    }]
+  }
+};
+
+Chart.Bar('chartAttack', {
+  options: optionsAttack,
+  data: dataAttack
+});
+// ----------------------------Average Stamina----------------------
+
+let avrgStamina =[];
+for(let type of setTypes){
+  let dataFilter = filterType(pokemonChartData,type);
+  let avrg = averageStamina(dataFilter);
+  avrgStamina.push(avrg.toFixed(0));
+}
+
+let dataStamina = {
+  labels: setTypes,
+  datasets: [{
+    label: "Average attack for type",
+    backgroundColor:[
+      "rgba(255, 159, 64, 0.2)",
+      "rgba(255, 99, 132, 0.2)",
+      "rgba(75, 192, 192, 0.2)",
+      "rgba(153, 102, 255, 0.2)",
+      "rgba(94,69,44,0.2)",
+      "rgba(161,148,135,0.2)",
+      "rgba(202,234,114,0.2)",
+      "rgba(130,123,116,0.2)",
+      "rgba(60,49,38,0.2)",
+      "rgba(255, 87, 51,0.2)",
+      "rgba(9, 121, 182,0.2)",
+      "rgba(88, 214, 141,0.2)",
+      "rgba(231,222,38,0.2)",
+      "rgba(223, 38, 231,0.2)",
+      "rgba(103, 242, 243,0.2)",
+      "rgba(122, 243, 103,0.2)",
+      "rgba(218, 247, 166,0.2)",
+      "rgba(104, 54, 137,0.2)",
+    ],
+    borderColor:[
+      "rgb(255, 159, 64)",
+      "rgb(255, 99, 132)",
+      "rgb(75, 192, 192)",
+      "rgb(153, 102, 255)",
+      "rgb(94,69,44)",
+      "rgb(161,148,135)",
+      "rgb(202,234,114)",
+      "rgb(130,123,116)",
+      "rgb(60,49,38)",
+      "rgb(255, 87, 51)",
+      "rgb(9, 121, 182)",
+      "rgb(88, 214, 141)",
+      "rgb(231,222,38)",
+      "rgb(223, 38, 231)",
+      "rgb(103, 242, 243)",
+      "rgb(122, 243, 103)",
+      "rgb(218, 247, 166)",
+      "rgb(104, 54, 137)",
+    ],
+    borderWidth: 2,
+    hoverBackgroundColor: "rgba(52,130,164,0.6)",
+    hoverBorderColor: "rgba(8,34,78,1)",
+    data: avrgStamina,
+  }]
+};
+
+let optionsStamina = {
+  maintainAspectRatio: false,
+  scales: {
+    yAxes: [{
+      stacked: true,
+      gridLines: {
+        display: true,
+        color: "rgba(255,99,132,0.2)"
+      }
+    }],
+    xAxes: [{
+      gridLines: {
+        display: false
+      }
+    }]
+  }
+};
+
+Chart.Bar('chartStamina', {
+  options: optionsStamina,
+  data: dataStamina
+});
+
+// ----------------------------Percent Types---------------------------
+
+let percentTypes =[];
+for(let type of setTypes){
+  let dataFilter = filterType(pokemonChartData,type);
+  let percent = (dataFilter.length/pokemonChartData.pokemon.length)*100;
+  percentTypes.push(percent.toFixed(0));
+}
+// console.log(percentTypes);
+let dataPercent = {
+  labels: setTypes,
+  datasets: [{
+    label: "Average attack for type",
+    backgroundColor:[
+      "rgba(255, 159, 64, 0.2)",
+      "rgba(255, 99, 132, 0.2)",
+      "rgba(75, 192, 192, 0.2)",
+      "rgba(153, 102, 255, 0.2)",
+      "rgba(94,69,44,0.2)",
+      "rgba(161,148,135,0.2)",
+      "rgba(202,234,114,0.2)",
+      "rgba(130,123,116,0.2)",
+      "rgba(60,49,38,0.2)",
+      "rgba(255, 87, 51,0.2)",
+      "rgba(9, 121, 182,0.2)",
+      "rgba(88, 214, 141,0.2)",
+      "rgba(231,222,38,0.2)",
+      "rgba(223, 38, 231,0.2)",
+      "rgba(103, 242, 243,0.2)",
+      "rgba(122, 243, 103,0.2)",
+      "rgba(218, 247, 166,0.2)",
+      "rgba(104, 54, 137,0.2)",
+    ],
+    borderColor:[
+      "rgb(255, 159, 64)",
+      "rgb(255, 99, 132)",
+      "rgb(75, 192, 192)",
+      "rgb(153, 102, 255)",
+      "rgb(94,69,44)",
+      "rgb(161,148,135)",
+      "rgb(202,234,114)",
+      "rgb(130,123,116)",
+      "rgb(60,49,38)",
+      "rgb(255, 87, 51)",
+      "rgb(9, 121, 182)",
+      "rgb(88, 214, 141)",
+      "rgb(231,222,38)",
+      "rgb(223, 38, 231)",
+      "rgb(103, 242, 243)",
+      "rgb(122, 243, 103)",
+      "rgb(218, 247, 166)",
+      "rgb(104, 54, 137)",
+    ],
+    borderWidth: 2,
+    hoverBackgroundColor: "rgba(52,130,164,0.6)",
+    hoverBorderColor: "rgba(8,34,78,1)",
+    data: percentTypes,
+  }]
+};
+
+let optionsPercent = {
+  maintainAspectRatio: false,
+};
+
+Chart.Doughnut('chartPercent', {
+  options: optionsPercent,
+  data: dataPercent
+});

@@ -1,4 +1,4 @@
-import {topTen, filterType, moreWeaknesses,lessWeaknesses,highAttack, smallAttack,highDefense,smallDefense,highEscape,highStamina,highCp, highHp } from '../src/data.js';
+import {topTen, filterType, moreWeaknesses,lessWeaknesses,highAttack, smallAttack,highDefense,smallDefense,highEscape,highStamina,highCp, highHp,averageAttack,averageStamina} from '../src/data.js';
 
 // ------------------TEST TOP TEN----------------------
 
@@ -22,7 +22,7 @@ describe('topTen', () => {
     expect(typeof topTen).toBe('function');
   });
 
-  it('returns `ordenadoSpawn`', () => {
+  it('debería retornar `ordenadoSpawn`', () => {
     expect(topTen(samplePokemonData)).toEqual(ordenadoSpawn);
   });
 });
@@ -58,7 +58,7 @@ describe('filterType', () => {
     expect(typeof filterType).toBe('function');
   });
 
-  it('returns `resultTypeGrass`', () => {
+  it('debería retornar `resultTypeGrass`', () => {
     expect(filterType(samplePokemonData,'grass')).toEqual(resultTypeGrass);
   });
 });
@@ -108,7 +108,7 @@ describe('moreWeaknesses', () => {
     expect(typeof moreWeaknesses).toBe('function');
   });
 
-  it('returns `resultMoreWeaknesses`', () => {
+  it('debería retornar `resultMoreWeaknesses`', () => {
     expect(moreWeaknesses(samplePokemonData)).toEqual(resultMoreWeaknesses);
   });
 });
@@ -156,7 +156,7 @@ describe('lessWeaknesses', () => {
     expect(typeof lessWeaknesses).toBe('function');
   });
 
-  it('returns `resultLessWeaknesses`', () => {
+  it('debería retornar `resultLessWeaknesses`', () => {
     expect(lessWeaknesses(samplePokemonData)).toEqual(resultLessWeaknesses);
   });
 });
@@ -229,7 +229,7 @@ describe('highAttack', () => {
     expect(typeof highAttack).toBe('function');
   });
 
-  it('returns `resultHighAttack`', () => {
+  it('debería retornar `resultHighAttack`', () => {
     expect(highAttack(sampleData)).toEqual(resultHighAttack);
   });
 });
@@ -270,7 +270,7 @@ describe('smallAttack', () => {
     expect(typeof smallAttack).toBe('function');
   });
 
-  it('returns `resultSmallAttack`', () => {
+  it('debería retornar `resultSmallAttack`', () => {
     expect(smallAttack(sampleData)).toEqual(resultSmallAttack);
   });
 });
@@ -312,7 +312,7 @@ describe('highDefense', () => {
     expect(typeof highDefense).toBe('function');
   });
 
-  it('returns `resultHighDefense`', () => {
+  it('debería retornar `resultHighDefense`', () => {
     expect(highDefense(sampleData)).toEqual(resultHighDefense);
   });
 });
@@ -353,7 +353,7 @@ describe('smallDefense', () => {
     expect(typeof smallDefense).toBe('function');
   });
 
-  it('returns `resultSmallDefense`', () => {
+  it('debería retornar `resultSmallDefense`', () => {
     expect(smallDefense(sampleData)).toEqual(resultSmallDefense);
   });
 });
@@ -395,7 +395,7 @@ describe('highEscape', () => {
     expect(typeof highEscape).toBe('function');
   });
 
-  it('returns `resultHighEscape`', () => {
+  it('debería retornar `resultHighEscape`', () => {
     expect(highEscape(sampleData)).toEqual(resultHighEscape);
   });
 });
@@ -436,7 +436,7 @@ describe('highStamina', () => {
     expect(typeof highStamina).toBe('function');
   });
 
-  it('returns `resultHighStamina`', () => {
+  it('debería retornar `resultHighStamina`', () => {
     expect(highStamina(sampleData)).toEqual(resultHighStamina);
   });
 });
@@ -477,7 +477,7 @@ describe('highCp', () => {
     expect(typeof highCp).toBe('function');
   });
 
-  it('returns `resultHighCp`', () => {
+  it('debería retornar `resultHighCp`', () => {
     expect(highCp(sampleData)).toEqual(resultHighCp);
   });
 });
@@ -518,10 +518,77 @@ describe('highHp', () => {
     expect(typeof highHp).toBe('function');
   });
 
-  it('returns `resultHighHp`', () => {
+  it('debería retornar `resultHighHp`', () => {
     expect(highHp(sampleData)).toEqual(resultHighHp);
   });
 });
-// ---------------------------------------------------------
 
+// ---------------------------Average Attack---------------------------------
 
+describe('averageAttack', () => {
+  const sampleData = [
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      }
+    },
+    {
+      "name": "ivysaur",
+      "stats": {
+        "base-attack": "151",
+        "base-defense": "143",
+        "base-stamina": "155",
+        "max-cp": "1699",
+        "max-hp": "134"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof averageAttack).toBe('function');
+  });
+
+  it('debería retornar el valor promedio igual a `134.5`', () => {
+    expect(averageAttack(sampleData)).toEqual(134.5);
+  });
+});
+
+// ---------------------------Average Stamina---------------------------------
+
+describe('averageStamina', () => {
+  const sampleData = [
+    {
+      "name": "bulbasaur",
+      "stats": {
+        "base-attack": "118",
+        "base-defense": "111",
+        "base-stamina": "128",
+        "max-cp": "1115",
+        "max-hp": "113"
+      }
+    },
+    {
+      "name": "ivysaur",
+      "stats": {
+        "base-attack": "151",
+        "base-defense": "143",
+        "base-stamina": "155",
+        "max-cp": "1699",
+        "max-hp": "134"
+      }
+    }
+  ];
+
+  it('is a function', () => {
+    expect(typeof averageStamina).toBe('function');
+  });
+
+  it('debería retornar el valor promedio igual a `141.5`', () => {
+    expect(averageStamina(sampleData)).toEqual(141.5);
+  });
+});
