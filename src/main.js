@@ -84,15 +84,15 @@ const displayMain = (id) => {
 const ten=topTen(pokemonData);
 
 ten.forEach((pokemon) => {
-  let tenPokemonContainer = document.createElement('div');
-  let spanPokemon = document.createElement('span');
-  spanPokemon.className =`pokemon_${pokemon.num}`;
+  const tenPokemonContainer = document.createElement('div');
+  const spanPokemon = document.createElement('span');
+  spanPokemon.className =`pokemon_${pokemon.num} pokemon_top`;
   // spanPokemon.setAttribute("id", `pokemon_${pokemon.num}`);
-  spanPokemon.textContent = `${pokemon.name} ${pokemon["spawn-chance"]}`;
-  let imgPokemon = document.createElement('img');
+  spanPokemon.textContent = `${pokemon.name}`;
+  const imgPokemon = document.createElement('img');
   imgPokemon.src = `${pokemon.img}`;
-  tenPokemonContainer.appendChild(spanPokemon);
   tenPokemonContainer.appendChild(imgPokemon);
+  tenPokemonContainer.appendChild(spanPokemon);
 
   document.getElementById('top_ten').appendChild(tenPokemonContainer);
 });
@@ -101,10 +101,10 @@ ten.forEach((pokemon) => {
 
 const printInformation =(obj, divi)=>{
   for(let property in obj){
-    let contenido = document.createElement('div');
-    let contenido_1 = document.createElement('b');
+    const contenido = document.createElement('div');
+    const contenido_1 = document.createElement('b');
     contenido_1.textContent = `${property}:`;
-    let span_1 =document.createElement('span');
+    const span_1 =document.createElement('span');
     span_1.textContent=`${obj[property]}`;
     contenido.appendChild(contenido_1);
     contenido.appendChild(span_1);
@@ -118,42 +118,42 @@ const mostrarPokemon = (data) => {
   const DATA = data.pokemon;
 
   DATA.forEach((pokemon) => {
-    let pokemonContainer = document.createElement('div');
+    const pokemonContainer = document.createElement('div');
     pokemonContainer.className =`pokemon_search`;
-    let spanPokemon = document.createElement('span');
+    const spanPokemon = document.createElement('span');
     spanPokemon.textContent = `${pokemon.name} ${pokemon.num}`;
-    let imgPokemon = document.createElement('img');
+    const imgPokemon = document.createElement('img');
     imgPokemon.src = `${pokemon.img}`;
-    let btnOpen =document.createElement('button');
+    const btnOpen =document.createElement('button');
     btnOpen.innerHTML='Information';
     btnOpen.className =`btnOpen_${pokemon.num}`;
     btnOpen.setAttribute("id", `btnOpen_${pokemon.num}`);
     
-    let divInformacion = document.createElement('div');
+    const divInformacion = document.createElement('div');
     divInformacion.className =`information_pokemon`;
     divInformacion.setAttribute("id", `information_pokemon_${pokemon.num}`);
     divInformacion.style.display='none';
-    let IMGCONTAINER = document.createElement('div');
+    const IMGCONTAINER = document.createElement('div');
     IMGCONTAINER.className='itemInfo container_img';
-    let INFOCONTAINER = document.createElement('div');
+    const INFOCONTAINER = document.createElement('div');
     INFOCONTAINER.className='itemInfo container_info';
-    let btnClose =document.createElement('button');
+    const btnClose =document.createElement('button');
     btnClose.innerHTML='volver';
     btnClose.className =`btnClose`;
     btnClose.setAttribute("id", `btnClose_${pokemon.num}`);
     
-    let imgInfoCONTAINER=document.createElement('div');
+    const imgInfoCONTAINER=document.createElement('div');
     imgInfoCONTAINER.className ='imagenINFO';
-    let btnCloseCONTAINER = document.createElement('div');
+    const btnCloseCONTAINER = document.createElement('div');
     btnCloseCONTAINER.className = 'btnINFO';
-    let nameNumeCONTAINER = document.createElement('div');
+    const nameNumeCONTAINER = document.createElement('div');
     nameNumeCONTAINER.className = 'nameNumINFO';
 
-    let imgInfo = document.createElement('img');
+    const imgInfo = document.createElement('img');
     imgInfo.src = `${pokemon.img}`;
-    let namePokemon=document.createElement('div')
+    const namePokemon=document.createElement('div')
     namePokemon.textContent=`${pokemon.name}`;
-    let numPokemon=document.createElement('div')
+    const numPokemon=document.createElement('div')
     numPokemon.textContent=`${pokemon.num}`;
 // --------------
     const objectInfo = { Generation: pokemon.generation.name, Height: pokemon.size.height, Weight: pokemon.size.weight, Rarity: pokemon['pokemon-rarity'], Type: pokemon.type, Encounter : pokemon['spawn-chance'], Attack: pokemon.stats['base-attack'], Defense: pokemon.stats['base-defense'], Resistance: pokemon.stats['base-stamina'], Cp: pokemon.stats['max-cp'], Hp: pokemon.stats['max-hp'], Resistant: pokemon.resistant, Weaknesses: pokemon.weaknesses };
@@ -202,19 +202,19 @@ const mostrarPokemon = (data) => {
 
 const filtrado = (data,type) => {
 
-let CONTAINER = document.createElement('div');
+const CONTAINER = document.createElement('div');
   CONTAINER.style.display='none';
   CONTAINER.className = `filter`;
   CONTAINER.setAttribute("id", `filter_${type}`);
 for (let i = 0; i < data.length; i++) {
 
-  let pokemonContainer = document.createElement('div');
+  const pokemonContainer = document.createElement('div');
   pokemonContainer.className =`pokemon_search`;
-  let spanPokemon = document.createElement('span');
+  const spanPokemon = document.createElement('span');
   spanPokemon.textContent = `${data[i].name} ${data[i].num}`;
-  let imgPokemon = document.createElement('img');
+  const imgPokemon = document.createElement('img');
   imgPokemon.src = `${data[i].img}`;
-  let btnOpen =document.createElement('button');
+  const btnOpen =document.createElement('button');
   btnOpen.innerHTML='Information';
   btnOpen.className =`filter_btnOpen_${data[i].num}`;
   btnOpen.setAttribute("id", `filter_btnOpen_${data[i].num}`);
@@ -489,19 +489,19 @@ document.querySelectorAll(".type").forEach(el => {
           initialData = highHp(dataFilterType);
         }
 
-        let CONTAINER = document.createElement('div');
+        const CONTAINER = document.createElement('div');
           // CONTAINER.style.display='none';
           CONTAINER.className = `filter`;
           CONTAINER.setAttribute("id", `filter_${filtroTipoDefault}`);
         for (let i = 0; i < initialData.length; i++) {
         
-          let pokemonContainer = document.createElement('div');
+          const pokemonContainer = document.createElement('div');
           pokemonContainer.className =`pokemon_search`;
-          let spanPokemon = document.createElement('span');
+          const spanPokemon = document.createElement('span');
           spanPokemon.textContent = `${initialData[i].name} ${initialData[i].num}`;
-          let imgPokemon = document.createElement('img');
+          const imgPokemon = document.createElement('img');
           imgPokemon.src = `${initialData[i].img}`;
-          let btnOpen =document.createElement('button');
+          const btnOpen =document.createElement('button');
           btnOpen.innerHTML='Information';
           btnOpen.className =`filter_btnOpen_${initialData[i].num}`;
           btnOpen.setAttribute("id", `filter_btnOpen_${initialData[i].num}`);
@@ -550,7 +550,7 @@ for(let type of setTypes){
   avrgAttack.push(avrg.toFixed(0));
 }
 
-let dataAttack = {
+const dataAttack = {
   labels: setTypes,
   datasets: [{
     label: "Average attack for type",
@@ -601,7 +601,7 @@ let dataAttack = {
   }]
 };
 
-let optionsAttack = {
+const optionsAttack = {
   maintainAspectRatio: false,
   scales: {
     yAxes: [{
@@ -619,6 +619,7 @@ let optionsAttack = {
   }
 };
 
+// eslint-disable-next-line
 Chart.Bar('chartAttack', {
   options: optionsAttack,
   data: dataAttack
@@ -632,7 +633,7 @@ for(let type of setTypes){
   avrgStamina.push(avrg.toFixed(0));
 }
 
-let dataStamina = {
+const dataStamina = {
   labels: setTypes,
   datasets: [{
     label: "Average attack for type",
@@ -683,7 +684,7 @@ let dataStamina = {
   }]
 };
 
-let optionsStamina = {
+const optionsStamina = {
   maintainAspectRatio: false,
   scales: {
     yAxes: [{
@@ -700,7 +701,7 @@ let optionsStamina = {
     }]
   }
 };
-
+// eslint-disable-next-line
 Chart.Bar('chartStamina', {
   options: optionsStamina,
   data: dataStamina
@@ -714,11 +715,11 @@ for(let type of setTypes){
   let percent = (dataFilter.length/pokemonChartData.pokemon.length)*100;
   percentTypes.push(percent.toFixed(0));
 }
-// console.log(percentTypes);
-let dataPercent = {
+
+const dataPercent = {
   labels: setTypes,
   datasets: [{
-    label: "Average attack for type",
+    label: "Pokémon Percentage for Type",
     backgroundColor:[
       "rgba(255, 159, 64, 0.2)",
       "rgba(255, 99, 132, 0.2)",
@@ -766,10 +767,10 @@ let dataPercent = {
   }]
 };
 
-let optionsPercent = {
+const optionsPercent = {
   maintainAspectRatio: false,
 };
-
+// eslint-disable-next-line
 Chart.Doughnut('chartPercent', {
   options: optionsPercent,
   data: dataPercent

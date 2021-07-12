@@ -26,21 +26,31 @@
 
 <!-- Interfaz Home -->
     <main id="interface_home" style="display: block;"> 
+      <div>
         <div class="box_pokemonGO">
-          <div class="pokemonGO_gif">
+          <div class="pokemonGO_gif"><a href="https://pokemongolive.com/es/
+            " id="btnPlay" target="_blank">Play</a> </div>
         </div>
-        </div>
+      </div>
       <section class="top_text_container">
-        <h1 class="item_title">MEET THE <span>TOP 10</span></h1>
+        <div class="top_title">
+          <h1 class="item_title">Meet the </h1>
+          <span>TOP 10</span>
+        </div>
         <p>Meet the pokemon with the highest encounter rate.</p>
       </section>
+      <div>
         <div id="top_ten"></div>
+      </div>
       
     </main>
 <!-- Interfaz Pokédex -->
     <main id="interface_pokedex" style="display: none;">
       <div class="pokedex_text_container">
-        <h1>Pokedéx <span id="pokebola"></span></h1>
+        <div>
+          <h1>Pokedéx</h1>
+          <img src="assets/img/favicon.png" alt="pokebola">
+        </div>
         <p>To be a good pokémon master you must face many challenges and that is why you must know your battle partner. So, choose your pokémon !!! </p>
       </div>
         <div class="line"></div>
@@ -67,8 +77,8 @@
                   <a id="type_dark" class="type"><img id="dark" src="assets/img/pokemon-siniestro.png" alt="dark" width="50" height="50"><span class="tooltiptext">dark</span> </a>
             </div>
 <!-- ----------------DROPDOWN------------------------- -->
-            <div>
-              <div>
+            <div class="btnsFilters">
+              <div class="searchNamePokemon">
                  <input type="search" placeholder="Buscar..." class="search">
               </div>
             <div class="item_all filter_container">
@@ -119,17 +129,34 @@
 
 <!-- Interfaz Statistics -->
 <main id="interface_statistics" style="display: none;">
-
+  <div id="titleStatistics">
+    <h1>Pokémon Statistics </h1>
+    <img src="assets/img/snorlax.png" alt="snorlax">
+  </div>
+<section class="charts">
+  <div>
+    <h3>Average Attack for Type</h3>
+  </div>
   <div class="chart-container">
     <canvas id="chartAttack"></canvas>
   </div>
-
+</section>
+<section class="charts">
+  <div>
+    <h3>Average Stamina for Type</h3>
+  </div>
   <div class="chart-container">
     <canvas id="chartStamina"></canvas>
   </div>
-  <div class="chart-container">
-    <canvas id="chartPercent"></canvas>
-  </div>
+</section>
+<section class="charts">
+<div>
+  <h3>Pokémon Percentage for Type</h3>
+</div>
+<div class="chart-container">
+  <canvas id="chartPercent"></canvas>
+</div>
+</section>
 </main>
 
 <!-- Interfaz Guide -->

@@ -58,15 +58,39 @@
     width: 100%;
     justify-content: space-around;
     justify-items: center;
+    background-color: rgba(0,0,0,1);
 }
 
 
 .box_pokemonGO div{
+  display: flex;
     background-image: url('assets/img/PokemonGO.gif');
     height: 200px;
     width: 400px;
     background-size: cover;
     background-position: center;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#btnPlay {
+  display: flex;
+  border: 1px solid #f8f8f8;
+  width: 90px;
+  height: 30px;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  color: #0A3977;
+  background-color: #f8f8f8;
+  text-decoration: none;
+}
+#btnPlay:hover {
+  background-color: #3482A4;
+  color: #f8f8f8;
 }
 
 /* ---------------------INTERFACE HOME-------------------------- */
@@ -75,13 +99,16 @@
   background-image: url('assets/img/verdePokemon.jpg');
   background-size: cover;
   background-position: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.item_title span{
+.top_text_container span{
   color: rgba(226, 218, 20, 1);
   -webkit-text-stroke: 1px #3482A4;
-  font-size: 30px;
+  font-size: 45px;
   font-weight: 900;
+  padding: 16px;
 }
 
 /* --------------------INTERFACE GUIDE------------------------ */
@@ -94,9 +121,13 @@
 
 #interface_guide h1 {
   font-family: 'Roboto', sans-serif;
-  font-weight: 300;
+  /* font-weight: 300; */
   text-align: center;
   padding: 20px;
+  color: rgba(226, 218, 20, 1);
+  -webkit-text-stroke: 1px #3482A4;
+  font-size: 40px;
+  font-weight: 900;
 }
 
 #guide_container {
@@ -329,15 +360,33 @@
 }
 
 .pokedex_text_container h1 {
-  margin: 20px;
+  margin: 25px 4px;
   align-content: center;
+  color: rgba(226, 218, 20, 1);
+  -webkit-text-stroke: 1px #3482A4;
+  font-size: 40px;
+  font-weight: 900;
 }
+#pokebola {
+  background-image: url('assets/img/favicon.png');
+  width: 30px;
+  height: 30px;
+}
+
 .pokedex_text_container p {
   margin: 15px;
   align-content: center;
   justify-content: center;
   /* width: 750px; */
+}
+.pokedex_text_container div {
+  display: flex;
 
+}
+.pokedex_text_container img {
+  width: 40px;
+  height: 40px;
+  margin: 30px 4px ;
 }
 /* ------------Imagenes pokemon pokédex-------------- */
 #pokemon {
@@ -378,7 +427,7 @@
    background-color: #3482A4;
    color: white;
  }
-/* ---------------XXXXXXXXXXXXXXXXXX---Types pokemon--------------- */
+/* --------------------Filtros Types pokemon-------------------- */
 
 /* #pokemon_type{
   display: flex;
@@ -503,7 +552,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  background-image: url('assets/img/fondoPokemonPlantas.gif');
+  background-image: url('assets/img/pokemon-research.jpg');
   background-size: cover;
   background-position: center;
   /* background-color: #dcf7ec; */
@@ -522,7 +571,7 @@
 .container_info {
   display: flex;
   flex-direction: column;
-  line-height: 25px;
+  line-height: 18px;
   margin: -80px 0px 0px;
   padding: 60px 30px 30px;
   background-color: white;
@@ -573,22 +622,36 @@ z-index: 2;
   /* border: 1px solid blue; */
   justify-content: space-around;
   align-items: center;
+  /* margin-left: 165px; */
+  /* margin-right: 165px; */
   /* width: 800px; */
+  padding: 20px;
+  flex: 1;
+  padding-bottom: 20px;
   /* margin-left: 235px; */
 }
 
 #top_ten div {
 /* display: inline-block; */
+  display: flex;
+  flex-wrap: wrap;
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 12px;
-  padding: 20px;
+  font-size: 14px;
+  padding: 10px;
   width: 150px;
   height: 150px;
-  margin-top:50px;
-  margin-bottom:50px;
+  margin-top:10px;
+  margin-bottom:10px;
+  justify-content: center;
   /* border: 1px solid red; */
   background: radial-gradient(50% 50% at 50% 50%, #3482A4 0%, rgba(52, 130, 164, 0) 100%);
+}
+#top_ten div img {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100px;
+  height: 100px;
 }
 
 .top_text_container {
@@ -601,11 +664,27 @@ z-index: 2;
   justify-content: center;
   margin-top: 40px;
   line-height: 25px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.top_text_container p {
+  margin: 20px 10px 10px 10px;
 }
 
 .item_title {
-  margin-bottom: 18px;
+  font-size: 45px;
+  font-weight: 300;
+  padding: 16px;
+  text-align: center;
 }
+
+.top_title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* --------------BOTON CLOSE INFORMACION-------------------- */
 .btnClose {
   font-family: 'Roboto', sans-serif;
@@ -668,6 +747,8 @@ footer {
     border-radius: 0px 15px 15px 0px;
     margin-top: 20px;
     margin-bottom: 20px;
+    padding: 50px;
+    /* border: 8px solid rgba(35, 185, 35, 0.5); */
   }
   .container_info div {
     width: 285px;
@@ -678,7 +759,7 @@ footer {
     border-radius: 15px 0px 0px 15px;
     margin-top: 20px;
     margin-bottom: 20px;
-    border: 1.5px solid #3482A4;
+    border: 8px solid #f8f8f8;
   }
   .container_img .btnINFO{
     width:380px;
@@ -711,12 +792,42 @@ footer {
   outline: none;
   border: 1px solid #3482A4;
   border-radius: 10px;
-  margin-left: 170px;
+  justify-content: center;
 }
 
-/* ---------------CHART---------------- */
+.btnsFilters {
+  display: flex;
+  flex-direction: column;
+}
+.btnsFilters .searchNamePokemon {
+text-align: right;
+padding: 10px 30px;
+}
+/* ------------------------CHART-------------------------- */
+#interface_statistics {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  background-image: url('assets/img/fondoHierba.jpg');
+  
+  background-position: center;
+  background-size: cover;
+  /* background-color: rgba(166, 244, 149 , 0.2); */
+}
+#interface_statistics h1 {
+  font-family: 'Roboto', sans-serif;
+  /* font-weight: 300; */
+  text-align: center;
+  padding: 40px;
+  color: rgba(226, 218, 20, 1);
+  -webkit-text-stroke: 1px #3482A4;
+  font-size: 40px;
+  font-weight: 900;
+}
+
 canvas {
-  border: 1px dotted red;
+  border: 1.5px dotted #3482A4;
+  background-color: #f8f8f8;
+
 }
 
 .chart-container {
@@ -726,5 +837,272 @@ canvas {
   height: 80vh;
   width: 80vw;
   margin: 30px;
+  align-self: center;
   /* border: 1px solid blue; */
+}
+
+.charts {
+  display: flex;
+  flex-direction: column;
+  /* justify-items: center; */
+}
+
+#interface_statistics h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 25px;
+  padding: 10px;
+  text-align: center;
+  /* margin-left: 150px; */
+  color: #0A3977;
+  /* background-color: rgba(0,0,0,0.1); */
+  background-color: rgba(255,255,255,0.3);
+  
+}
+
+#titleStatistics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+}
+#titleStatistics img {
+  width: 160px;
+  height: 160px;
+}
+
+/* --------------Colores a los cuadros del pokemon---------------- */
+/* ----------------- */
+#filter_normal div {
+  background-color: rgba(255, 159, 64, 0.2);
+  border: 1px solid rgb(255, 159, 64);
+}
+#filter_normal div button {
+  background-color: rgba(255, 159, 64, 0.2);
+  border: 1px solid rgb(255, 159, 64);
+}
+#filter_normal div button:hover {
+  background-color: rgb(255, 159, 64);
+  color: #f8f8f8;
+}
+/* ----------------- */
+#filter_fighting div {
+  background-color: rgba(255, 99, 132, 0.2);
+  border: 1px solid rgb(255, 99, 132);
+}
+#filter_fighting div button {
+  background-color: rgba(255, 99, 132, 0.2);
+  border: 1px solid rgb(255, 99, 132);
+}
+#filter_fighting div button:hover {
+  background-color: rgb(255, 99, 132);
+  color: #f8f8f8;
+}
+/* ---------------- */
+#filter_flying div {
+  background-color: rgba(56, 194, 194, 0.2);
+  border: 1px solid rgb(56, 194, 194);
+}
+#filter_flying div button {
+  background-color: rgba(56, 194, 194, 0.2);
+  border: 1px solid rgb(56, 194, 194);
+}
+#filter_flying div button:hover {
+  background-color: rgb(56, 194, 194);
+  color: #f8f8f8;
+}
+/* --------------- */
+#filter_poison div {
+  background-color: rgba(153, 102, 255, 0.2);
+  border: 1px solid rgb(153, 102, 255);
+}
+#filter_poison div button {
+  background-color: rgba(153, 102, 255, 0.2);
+  border: 1px solid rgb(153, 102, 255);
+}
+#filter_poison div button:hover {
+  background-color: rgb(153, 102, 255);
+  color: #f8f8f8;
+}
+/* -------------- */
+#filter_ground div {
+  background-color: rgba(94,69,44,0.2);
+  border: 1px solid rgb(94,69,44);
+}
+#filter_ground div button {
+  background-color: rgba(94,69,44,0.2);
+  border: 1px solid rgb(94,69,44);
+}
+#filter_ground div button:hover {
+  background-color: rgb(94,69,44);
+  color: #f8f8f8;
+}
+/* -------------- */
+#filter_rock div {
+  background-color: rgba(161,148,135,0.2);
+  border: 1px solid rgb(161,148,135);
+}
+#filter_rock div button {
+  background-color: rgba(161,148,135,0.2);
+  border: 1px solid rgb(161,148,135);
+}
+#filter_rock div button:hover {
+  background-color: rgb(161,148,135);
+  color: #f8f8f8;
+}
+/* -------------- */
+#filter_bug div {
+  background-color: rgba(202,234,114,0.2);
+  border: 1px solid rgb(202,234,114);
+}
+#filter_bug div button {
+  background-color: rgba(202,234,114,0.2);
+  border: 1px solid rgb(202,234,114);
+}
+#filter_bug div button:hover {
+  background-color: rgb(202,234,114);
+  color: #f8f8f8;
+}
+/* -------------- */
+#filter_ghost div {
+  background-color: rgba(130,123,116,0.2);
+  border: 1px solid rgb(130,123,116);
+}
+#filter_ghost div button {
+  background-color: rgba(130,123,116,0.2);
+  border: 1px solid rgb(130,123,116);
+}
+#filter_ghost div button:hover {
+  background-color: rgb(130,123,116);
+  color: #f8f8f8;
+}
+/* -------------- */
+#filter_steel div {
+  background-color: rgba(60,49,38,0.2);
+  border: 1px solid rgb(60,49,38);
+}
+#filter_steel div button {
+  background-color: rgba(60,49,38,0.2);
+  border: 1px solid rgb(60,49,38);
+}
+#filter_steel div button:hover {
+  background-color: rgb(60,49,38);
+  color: #f8f8f8;
+}
+/* ------------- */
+#filter_fire div {
+  background-color: rgba(255, 87, 51,0.2);
+  border: 1px solid rgb(255, 87, 51);
+}
+#filter_fire div button {
+  background-color: rgba(255, 87, 51,0.2);
+  border: 1px solid rgb(255, 87, 51);
+}
+#filter_fire div button:hover {
+  background-color: rgb(255, 87, 51);
+  color: #f8f8f8;
+}
+/* ------------- */
+#filter_water div {
+  background-color: rgba(9, 121, 182,0.2);
+  border: 1px solid rgb(9, 121, 182);
+}
+#filter_water div button {
+  background-color: rgba(9, 121, 182,0.2);
+  border: 1px solid rgb(9, 121, 182);
+}
+#filter_water div button:hover {
+  background-color: rgb(9, 121, 182);
+  color: #f8f8f8;
+}
+/* ------------- */
+#filter_grass div {
+  background-color: rgba(88, 214, 141,0.2);
+  border: 1px solid rgb(88, 214, 141);
+}
+#filter_grass div button {
+  background-color: rgba(88, 214, 141,0.2);
+  border: 1px solid rgb(88, 214, 141);
+}
+#filter_grass div button:hover {
+  background-color: rgb(88, 214, 141);
+  color: #f8f8f8;
+}
+/* ------------- */
+#filter_electric div {
+  background-color: rgba(231,222,38,0.2);
+  border: 1px solid rgb(231,222,38);
+}
+#filter_electric div button {
+  background-color: rgba(231,222,38,0.2);
+  border: 1px solid rgb(231,222,38);
+}
+#filter_electric div button:hover {
+  background-color: rgb(231,222,38);
+  color: #f8f8f8;
+}
+/* ------------- */
+#filter_psychic div {
+  background-color: rgba(223, 38, 231,0.2);
+  border: 1px solid rgb(223, 38, 231);
+}
+#filter_psychic div button {
+  background-color: rgba(223, 38, 231,0.2);
+  border: 1px solid rgb(223, 38, 231);
+}
+#filter_psychic div button:hover {
+  background-color: rgb(223, 38, 231);
+  color: #f8f8f8;
+}
+/* ------------- */
+#filter_ice div {
+  background-color: rgba(45, 219, 219,0.2);
+  border: 1px solid rgb(45, 219, 219);
+}
+#filter_ice div button {
+  background-color: rgba(45, 219, 219,0.2);
+  border: 1px solid rgb(45, 219, 219);
+}
+#filter_ice div button:hover {
+  background-color: rgb(45, 219, 219);
+  color: #f8f8f8;
+}
+/* ------------- */
+#filter_dragon div {
+  background-color: rgba(122, 243, 103,0.2);
+  border: 1px solid rgb(122, 243, 103);
+}
+#filter_dragon div button {
+  background-color: rgba(122, 243, 103,0.2);
+  border: 1px solid rgb(122, 243, 103);
+}
+#filter_dragon div button:hover {
+  background-color: rgb(122, 243, 103);
+  color: #f8f8f8;
+}
+/* ------------- */
+#filter_fairy div {
+  background-color: rgba(218, 247, 166,0.2);
+  border: 1px solid rgb(180, 212, 121);
+}
+#filter_fairy div button {
+  background-color: rgba(218, 247, 166,0.2);
+  border: 1px solid rgb(180, 212, 121);
+}
+#filter_fairy div button:hover {
+  background-color: rgb(180, 212, 121);
+  color: #f8f8f8;
+}
+/* ------------- */
+#filter_dark div {
+  background-color: rgba(104, 54, 137,0.2);
+  border: 1px solid rgb(104, 54, 137);
+}
+#filter_dark div button {
+  background-color: rgba(104, 54, 137,0.2);
+  border: 1px solid rgb(104, 54, 137);
+}
+#filter_dark div button:hover {
+  background-color: rgb(104, 54, 137);
+  color: #f8f8f8;
 }
