@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PokéGO Friend</title>
+    <link type="img/png" rel="icon" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- <div id="root"></div> -->
+
+<!-- Header -->
+    <header class="header_container">
+      <img class="item item_img" src="assets/img/logo.png" alt="logo" width="160" height="80">
+        
+        <li class="item item_home" id="home"> Home </li> 
+        <li class="item item_pokedex" id="pokedex"> Pokédex </li>
+        <li class="item item_statistics" id="statistics"> Statistics </li>
+        <li class="item item_guide" id="guide"> Guide </li>
+     
+    </header>
+
+<!-- Interfaz Home -->
+    <main id="interface_home" style="display: block;"> 
+      <div>
+        <div class="box_pokemonGO">
+          <div class="pokemonGO_gif"><a href="https://pokemongolive.com/es/
+            " id="btnPlay" target="_blank">Play</a> </div>
+        </div>
+      </div>
+      <section class="top_text_container">
+        <div class="top_title">
+          <h1 class="item_title">Meet the </h1>
+          <span>TOP 10</span>
+        </div>
+        <p>Meet the pokemon with the highest encounter rate.</p>
+      </section>
+      <div>
+        <div id="top_ten"></div>
+      </div>
+      
+    </main>
+<!-- Interfaz Pokédex -->
+    <main id="interface_pokedex" style="display: none;">
+      <div class="pokedex_text_container">
+        <div>
+          <h1>Pokedéx</h1>
+          <img src="assets/img/favicon.png" alt="pokebola">
+        </div>
+        <p>To be a good pokémon master you must face many challenges and that is why you must know your battle partner. So, choose your pokémon !!! </p>
+      </div>
+        <div class="line"></div>
+      <section class="all_filter_container">
+<!-- ----------ICONOS TIPO DE POKEMON----------------- -->       
+            <div class="item_all type_container">
+                  <a id="type_normal" class="type"><img id="normal" src="assets/img/pokemon-normal.png" alt="normal" width="50" height="50"> <span class="tooltiptext">Normal</span> </a>
+                  <a id="type_fighting" class="type"><img id="fighting" src="assets/img/pokemon-lucha.png" alt="fighting" width="50" height="50"> <span class="tooltiptext">fighting</span> </a>
+                  <a id="type_flying" class="type"><img id="flying" src="assets/img/pokemon-volador.png" alt="flying" width="50" height="50"><span class="tooltiptext">flying</span> </a>
+                  <a id="type_poison" class="type"><img id="poison" src="assets/img/pokemon-veneno.png" alt="poison" width="50" height="50"><span class="tooltiptext">poison</span> </a>
+                  <a id="type_ground" class="type"><img id="ground" src="assets/img/pokemon-tierra.png" alt="ground" width="50" height="50"><span class="tooltiptext">ground</span> </a>
+                  <a id="type_rock" class="type"><img id="rock" src="assets/img/pokemon-roca.png" alt="rock" width="50" height="50"><span class="tooltiptext">rock</span> </a>
+                  <a id="type_bug" class="type"><img id="bug" src="assets/img/pokemon-bicho.png" alt="bug" width="50" height="50"><span class="tooltiptext">bug</span> </a>
+                  <a id="type_ghost" class="type"><img id="ghost" src="assets/img/pokemon-fantasma.png" alt="ghost" width="50" height="50"><span class="tooltiptext">ghost</span> </a>
+                  <a id="type_steel" class="type"><img id="steel" src="assets/img/pokemon-acero.png" alt="steel" width="50" height="50"><span class="tooltiptext">steel</span> </a>
+                  <a id="type_fire" class="type"><img id="fire" src="assets/img/pokemon-fuego.png" alt="fire" width="50" height="50"><span class="tooltiptext">fire</span> </a>
+                  <a id="type_water" class="type"><img id="water" src="assets/img/pokemon-agua.png" alt="water" width="50" height="50"><span class="tooltiptext">water</span> </a>
+                  <a id="type_grass" class="type"><img id="grass" src="assets/img/pokemon-planta.png" alt="grass" width="50" height="50"><span class="tooltiptext">grass</span> </a>
+                  <a id="type_electric" class="type"><img id="electric" src="assets/img/pokemon-eléctrico.png" alt="electric" width="50" height="50"><span class="tooltiptext">electric</span> </a>
+                  <a id="type_psychic" class="type"><img id="psychic" src="assets/img/pokemon-psíquico.png" alt="psychic" width="50" height="50"><span class="tooltiptext">psychic</span> </a>
+                  <a id="type_ice" class="type"><img id="ice" src="assets/img/pokemon-hielo.png" alt="ice" width="50" height="50"><span class="tooltiptext">ice</span> </a>
+                  <a id="type_dragon" class="type"><img id="dragon" src="assets/img/pokemon-dragón.png" alt="dragon" width="50" height="50"><span class="tooltiptext">dragon</span> </a>
+                  <a id="type_fairy" class="type"><img id="fairy" src="assets/img/pokemon-fairy.png" alt="fairy" width="50" height="50"><span class="tooltiptext">fairy</span> </a>
+                  <a id="type_dark" class="type"><img id="dark" src="assets/img/pokemon-siniestro.png" alt="dark" width="50" height="50"><span class="tooltiptext">dark</span> </a>
+            </div>
+<!-- ----------------DROPDOWN------------------------- -->
+            <div class="btnsFilters">
+              <div class="searchNamePokemon">
+                 <input type="search" placeholder="Buscar..." class="search">
+              </div>
+            <div class="item_all filter_container">
+              <div id="dropdown_weaknesses">
+                <button class="dropbtn">Weaknesses</button>
+                <div class="dropdown_content">
+                  <a id="more_weaknesses" class="dropdown">&#8593; weaknesses</a>
+                  <a id="less_weaknesses" class="dropdown">&#8595; weaknesses</a>
+                </div>
+                </div>
+                <div id="dropdown_attack">
+                  <button class="dropbtn">Attack</button>
+                <div class="dropdown_content">
+                  <a id="high_attack" class="dropdown">&#8593; attack</a>
+                  <a id="small_attack" class="dropdown">&#8595; attack</a>
+                </div>
+                </div>
+                <div id="dropdown_defense">
+                  <button class="dropbtn">Defense</button>
+                <div class="dropdown_content">
+                  <a id="high_defense" class="dropdown">&#8593; defense</a>
+                  <a id="small_defense" class="dropdown">&#8595; defense</a>
+                </div>
+                </div>
+                <div id="dropdown_more">
+                  <button class="dropbtn">More</button>
+                <div class="dropdown_content">
+                  <a id="high_escape" class="dropdown">&#8593; escape</a>
+                  <a id="high_stamina" class="dropdown">&#8593; stamina</a>
+                  <a id="high_cp" class="dropdown">&#8593; cp</a>
+                  <a id="high_hp" class="dropdown">&#8593; hp</a>
+                </div>
+                </div> 
+              </div>
+            </div>
+      </section>
+         <div class="line"></div>
+         <div id="pokemon"></div>
+         <div id="pokemon_type" style="display: none;"></div>
+         <div id="pokemon_type_filter" style="display: none;"></div>
+    </main>
+<!-- Interfaz About -->
+  <main id="interface_about" style="display: none;">
+      <section>
+          <div id="imagen_pokemon"></div>
+      </section>
+  </main>
+
+<!-- Interfaz Statistics -->
+<main id="interface_statistics" style="display: none;">
+  <div id="titleStatistics">
+    <h1>Pokémon Statistics </h1>
+    <img src="assets/img/snorlax.png" alt="snorlax">
+  </div>
+<section class="charts">
+  <div>
+    <h3>Average Attack for Type</h3>
+  </div>
+  <div class="chart-container">
+    <canvas id="chartAttack"></canvas>
+  </div>
+</section>
+<section class="charts">
+  <div>
+    <h3>Average Stamina for Type</h3>
+  </div>
+  <div class="chart-container">
+    <canvas id="chartStamina"></canvas>
+  </div>
+</section>
+<section class="charts">
+<div>
+  <h3>Pokémon Percentage for Type</h3>
+</div>
+<div class="chart-container">
+  <canvas id="chartPercent"></canvas>
+</div>
+</section>
+</main>
+
+<!-- Interfaz Guide -->
+
+  <main id="interface_guide" style="display: none;">
+    <h1>Game guide</h1>
+    <section id="guide_container">
+      <div id="catch_pokemon">
+        <div>
+          <h4>Catch pokémon</h4>
+          <p>Find your partner.</p>
+        </div>
+      </div>
+      <div id="pokestop">
+        <div>
+          <h4>PokéStops</h4>
+          <p>Find objects by turning the Photo Disc.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+<!-- footer -->
+  <footer>
+    <p>© 2021 PokéGO Friend</p>
+  </footer>
+
+    <script src="main.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  </body>
+</html>
