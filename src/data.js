@@ -4,7 +4,7 @@
 export const filterType= (data,type) => {
   const POKEMON = JSON.parse(JSON.stringify(data.pokemon));
   const predicate = (item) => {
-    return item.type[0] == type || item.type[1] == type;
+    return item.type[0] === type || item.type[1] === type;
   }
   
   return POKEMON.filter(predicate);
@@ -117,7 +117,7 @@ export const averageAttack = (data) => {
     let attackItem = data[i].stats['base-attack'];
     myArray.push(parseInt(attackItem));
   }
-  let sum = myArray.reduce(
+  const sum = myArray.reduce(
         (prev, item) => prev + item,
     0,
     );
@@ -130,7 +130,7 @@ export const averageStamina = (data) => {
     let attackItem = data[i].stats['base-stamina'];
     myArray.push(parseInt(attackItem));
   }
-  let sum = myArray.reduce(
+  const sum = myArray.reduce(
         (prev, item) => prev + item,
     0,
     );

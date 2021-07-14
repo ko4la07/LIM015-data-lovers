@@ -90,7 +90,7 @@ ten.forEach((pokemon) => {
   // spanPokemon.setAttribute("id", `pokemon_${pokemon.num}`);
   spanPokemon.textContent = `${pokemon.name}`;
   const imgPokemon = document.createElement('img');
-  imgPokemon.src = `${pokemon.img}`;
+  imgPokemon.src = pokemon.img;
   tenPokemonContainer.appendChild(imgPokemon);
   tenPokemonContainer.appendChild(spanPokemon);
 
